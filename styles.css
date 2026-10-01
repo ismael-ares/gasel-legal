@@ -1,1 +1,226 @@
-:root{color-scheme:light dark;--bg:#f7f7fb;--surface:#fff;--text:#1b1b20;--muted:#62636f;--accent:#4f46e5;--accent-soft:#e8e7ff;--border:#dedee8;--shadow:0 12px 32px #20204014}@media(prefers-color-scheme:dark){:root{--bg:#121217;--surface:#202027;--text:#e4e1e9;--muted:#c7c4cc;--accent:#c4c1ff;--accent-soft:#302e55;--border:#47464e;--shadow:none}}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,sans-serif}.site-header{border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 88%,transparent);padding:1rem}.site-header,.document-shell{padding-inline:max(1rem,calc((100% - 46rem)/2))}.brand{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;letter-spacing:.04em}.brand-logo{width:24px;height:24px;border-radius:6px;display:block}.document-nav,.language-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}a{color:var(--accent);text-decoration-thickness:.09em;text-underline-offset:.18em}a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:.2rem}.document-nav a,.language-nav a{padding:.32rem .58rem;border-radius:999px;text-decoration:none}.document-nav a[aria-current],.language-nav a[aria-current]{background:var(--accent-soft);color:var(--text);font-weight:700}.document-shell{padding-block:2rem 3rem}.legal-document{display:grid;gap:1rem}.document-hero,.legal-section,.site-footer{border:1px solid var(--border);border-radius:1.25rem;background:var(--surface);box-shadow:var(--shadow)}.document-hero{padding:1.5rem;background:var(--accent-soft)}.document-hero h1{margin:.1rem 0;font-size:clamp(2rem,8vw,3rem);line-height:1.1}.updated{color:var(--muted);margin:.8rem 0 0}.legal-section{padding:1.4rem}.legal-section h2{margin:0 0 .6rem;line-height:1.2}.legal-section p{margin:.6rem 0}.site-footer{margin-top:1rem;padding:1rem 1.4rem;color:var(--muted);font-size:.9rem}@media print{body{background:#fff;color:#000}.site-header,.site-footer{display:none}.document-shell{padding:0}.document-hero,.legal-section{box-shadow:none;border:0;border-radius:0;break-inside:avoid}}
+:root {
+  color-scheme: light dark;
+  --bg: #FFFAF7;
+  --surface: #FFF1EB;
+  --text: #21344A;
+  --muted: #526171;
+  --accent: #8F351A;
+  --accent-soft: #FFE0D1;
+  --border: #D8C6BC;
+  --brand-flame: #E4572E;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111820;
+    --surface: #1C252F;
+    --text: #EDF1F5;
+    --muted: #BBC5D0;
+    --accent: #FFB59A;
+    --accent-soft: #4D2C22;
+    --border: #43515F;
+    --brand-flame: #FFB59A;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 1rem/1.65 system-ui, "Segoe UI", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.18em;
+}
+
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 0.2rem;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 2;
+  inset-block-start: 0.5rem;
+  inset-inline-start: 0.5rem;
+  transform: translateY(-180%);
+  padding: 0.7rem 1rem;
+  border-radius: 0.6rem;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  padding: 1rem max(1rem, calc((100% - 46rem) / 2));
+  border-block-end: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.brand {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  gap: 0.7rem;
+  padding-inline-start: 0.55rem;
+  border-inline-start: 3px solid var(--brand-flame);
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.document-nav,
+.language-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-block-start: 0.65rem;
+}
+
+.document-nav a,
+.language-nav a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: var(--accent);
+  text-align: center;
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}
+
+.document-nav a[aria-current="page"],
+.language-nav a[aria-current="page"] {
+  border-color: var(--border);
+  background: var(--accent-soft);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.document-shell {
+  width: min(100%, 46rem);
+  margin-inline: auto;
+  padding: 2rem 1rem 3rem;
+}
+
+.legal-document {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.document-intro h1,
+.index-page h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.document-summary {
+  margin: 0.9rem 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.updated {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.legal-section h2 {
+  margin: 0 0 0.65rem;
+  font-size: 1.3rem;
+  line-height: 1.35;
+}
+
+.legal-section p {
+  margin: 0 0 0.75rem;
+}
+
+.legal-section p:last-child {
+  margin-block-end: 0;
+}
+
+.license-text {
+  margin: 1rem 0 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  color: var(--text);
+  font: 0.875rem/1.6 ui-monospace, "Cascadia Mono", "Segoe UI Mono", monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.index-page p {
+  margin-block-start: 1rem;
+}
+
+@media print {
+  :root {
+    color-scheme: light;
+    --bg: #FFFFFF;
+    --surface: #FFFFFF;
+    --text: #111111;
+    --muted: #333333;
+    --accent: #111111;
+    --accent-soft: #FFFFFF;
+    --border: #999999;
+  }
+
+  body {
+    background: #FFFFFF;
+    color: #111111;
+  }
+
+  .site-header,
+  .skip-link {
+    display: none;
+  }
+
+  .document-shell {
+    width: 100%;
+    padding: 0;
+  }
+
+  .license-text {
+    break-inside: auto;
+    border: 0;
+    padding: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+}

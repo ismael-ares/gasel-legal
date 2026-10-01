@@ -1,0 +1,967 @@
+{
+  "schema_version": 1,
+  "language_order": [
+    "eu",
+    "es",
+    "ca",
+    "en",
+    "fr",
+    "gl",
+    "de",
+    "ja",
+    "pt",
+    "ru"
+  ],
+  "document_order": [
+    "privacy",
+    "legal",
+    "licenses"
+  ],
+  "source_sha256": {
+    "language_catalogs": {
+      "eu": "c75e790a51af68939158ab26036b4700f90370b1e77b38da9e1e8590646c1fa9",
+      "es": "b93005c8cd253a84513756d61ae3be27c4262450c100e3b4ed7fb2326b3948a6",
+      "ca": "f029960df76c3622b314b043e2f66648f273fb534e0673ca7b2a2de6f7c38ae0",
+      "en": "0ba95b8df52aa9f7971c00de5550ca8dbfe742d35d349e74fa56d4dd7439d483",
+      "fr": "ddb6458c7f93c6849bf94a6f1e0b40fc9b1ed7955482124db5e4e51b275f27f4",
+      "gl": "5fa6e2df7cc82216e0212238e7141971ad5cd7b476e8652e3d2cabec52572668",
+      "de": "2e55dd28133472658f8bfc52a2c40ee598028726a0766dd21d113e8d9c03eecd",
+      "ja": "3160e5e462a5f3366ba0df4d54bad801209b5c88d3e6cae447d6a7669c20146e",
+      "pt": "845f61600545365f50fe71b54196ef66c707706240769aa738ea945e3a3e4707",
+      "ru": "a4066fde5a15bcbf6aa7b628b392bf1f8fa62145b3eaae1b1d1c9a26f15691e2"
+    },
+    "google_sans_flex_license": "0d6194f5ba9661c627db09279762e664e78d3970f8c2c1dc7696257e542f62c5"
+  },
+  "locales": {
+    "eu": {
+      "tag": "eu-ES",
+      "language_name": "Euskara",
+      "navigation": {
+        "skip": "Saltatu edukira",
+        "documents": "Legezko dokumentuak",
+        "languages": "Dokumentuaren hizkuntza"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Pribatutasun-politika",
+          "summary": "Gasel-ek datuak, kokapena eta kanpoko zerbitzuak nola tratatzen dituen.",
+          "updated": "Azken eguneratzea: 2026ko irailaren 1a",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Arduraduna eta harremana",
+              "body": "Ismael Ares da Gasel-en arduraduna. Pribatutasun-kontsultetarako edo laguntzarako: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Datuak eta helburua",
+              "body": "Aplikazioak ez du konturik sortzen eta ez du izenik, helbide elektronikorik, telefonorik, ordainketa-daturik edo publizitate-identifikatzailerik eskatzen. Gutxi gorabeherako edo kokapen zehatza aukerakoa da, eta aplikazioa irekita dagoenean hurbileko gasolindegiak erakusteko, emaitzak ordenatzeko, mapa zentratzeko eta distantziak kalkulatzeko erabiltzen da. Aplikazioa baimenik eman gabe erabil dezakezu eta eremu bat eskuz bilatu."
+            },
+            {
+              "id": "services",
+              "title": "Kanpoko zerbitzuak",
+              "body": "Aplikazioak prezio eta deskontuen datu publikoak deskargatzen ditu, behar denean Androiden geokodetzea eta OSRM erabil ditzake, eta Google Maps SDK erabiltzen du. Google-k eskaera eta gailuaren metadatuak trata ditzake bere pribatutasun-politikaren arabera."
+            },
+            {
+              "id": "security",
+              "title": "Segurtasuna eta partekatzea",
+              "body": "Komunikazioek HTTPS erabiltzen dute. Ez dugu daturik saltzen, eta ez dugu publizitaterik, analitika propiorik edo hutsegite-txostenik sartzen. Gasolindegi bat partekatzea edo nabigazio-aplikazio bat irekitzea zuk hasitako ekintza da."
+            },
+            {
+              "id": "retention",
+              "title": "Kontserbazioa eta aldaketak",
+              "body": "Hobespenak, gogokoak, deskontu-planak eta deskargatutako datuak gailuan gordetzen dira ezabatu arte. Politika hau aplikazioaren datu-praktikak aldatzen direnean eguneratuko da."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Legezko oharra",
+          "summary": "Gasel-en iturriei, egiletzei eta erabilera-mugei buruzko informazioa.",
+          "updated": "Azken eguneratzea: 2026ko irailaren 1a",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Arduraduna eta harremana",
+              "body": "Ismael Ares da Gasel-en arduraduna. Pribatutasun-kontsultetarako edo laguntzarako: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Informazio orientagarria",
+              "body": "Prezioak, ordutegiak, deskontuak eta distantziak informaziozkoak dira eta atzerapenak, akatsak edo islatu gabeko baldintzak izan ditzakete. Egiaztatu beti erabilgarritasuna, prezioa eta baldintzak gasolindegian."
+            },
+            {
+              "id": "brands",
+              "title": "Zerbitzuak eta markak",
+              "body": "Gasel ez dago Ministerioarekin, Google-rekin, OSRM-rekin, OpenStreetMap-ekin, operadoreekin edo erakutsitako markekin afiliatuta edo haiek babestuta. Google Maps Google-ren marka da. Gainerako markak eta logotipoak haien titularrenak dira."
+            },
+            {
+              "id": "use",
+              "title": "Erabilera",
+              "body": "Aplikazioak ez du nabigazio-zerbitzu bat ordezkatzen eta ez da gidatze gidaturako erabili behar. Distantziak eskuragarri dauden datuekin kalkulatutako estimazioak dira."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Kode irekiko oharrak",
+          "summary": "Gasel-en dauden kode irekiko proiektuen oharrak.",
+          "updated": "Azken eguneratzea: 2026ko irailaren 1a",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Kode irekiko softwarea",
+              "body": "Gasel-ek AndroidX eta Jetpack Compose, Retrofit eta Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, Google Play services, Google Maps SDK eta OSRM ditu, haien egileek aplikagarriak diren lizentzien pean banatuta."
+            },
+            {
+              "id": "attribution",
+              "title": "Egiletzak",
+              "body": "Google Maps-en egiletza maparen SDK barruan erakusten da eta ez da ezkutatu behar. Datu-iturrien eta marken oharrak lege-oharrean zehazten dira."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex, biribiltasun handienarekin. SIL Open Font License 1.1 lizentziapean banatua.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "es": {
+      "tag": "es-ES",
+      "language_name": "Castellano",
+      "navigation": {
+        "skip": "Saltar al contenido",
+        "documents": "Documentos legales",
+        "languages": "Idioma del documento"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Política de privacidad",
+          "summary": "Cómo Gasel trata los datos, la ubicación y los servicios externos.",
+          "updated": "Última actualización: 1 de septiembre de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable y contacto",
+              "body": "Ismael Ares es el responsable de Gasel. Para consultas de privacidad o soporte: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Datos y finalidad",
+              "body": "La app no crea cuentas ni solicita nombre, correo, teléfono, datos de pago ni identificadores publicitarios. La ubicación aproximada o precisa es opcional y se usa mientras la app está abierta para mostrar estaciones cercanas, ordenar resultados, centrar el mapa y calcular distancias. Puede usar la app sin concederla y buscar una zona manualmente."
+            },
+            {
+              "id": "services",
+              "title": "Servicios externos",
+              "body": "La app descarga datos públicos de precios y descuentos, puede usar geocodificación de Android y OSRM cuando es necesario, y usa Google Maps SDK. Google puede tratar metadatos de solicitud y dispositivo conforme a su política de privacidad."
+            },
+            {
+              "id": "security",
+              "title": "Seguridad y compartición",
+              "body": "Las comunicaciones usan HTTPS. No vendemos datos ni incorporamos publicidad, analítica propia o informes de fallos. Compartir una estación o abrir una aplicación de navegación es una acción iniciada por usted."
+            },
+            {
+              "id": "retention",
+              "title": "Conservación y cambios",
+              "body": "Las preferencias, favoritos, planes de descuento y datos descargados se guardan en el dispositivo hasta que los elimine. Esta política se actualizará cuando cambien las prácticas de datos de la aplicación."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Aviso legal",
+          "summary": "Información sobre las fuentes, atribuciones y límites de uso de Gasel.",
+          "updated": "Última actualización: 1 de septiembre de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable y contacto",
+              "body": "Ismael Ares es el responsable de Gasel. Para consultas de privacidad o soporte: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Información orientativa",
+              "body": "Los precios, horarios, descuentos y distancias tienen carácter informativo y pueden contener retrasos, errores o condiciones no reflejadas. Verifique siempre la disponibilidad, el precio y las condiciones en la estación."
+            },
+            {
+              "id": "brands",
+              "title": "Servicios y marcas",
+              "body": "Gasel no está afiliada ni respaldada por el Ministerio, Google, OSRM, OpenStreetMap, los operadores ni las marcas mostradas. Google Maps es una marca de Google. Las demás marcas y logotipos pertenecen a sus titulares."
+            },
+            {
+              "id": "use",
+              "title": "Uso",
+              "body": "La aplicación no sustituye a un servicio de navegación ni debe utilizarse para conducción guiada. Las distancias son estimaciones calculadas con datos disponibles."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Avisos de código abierto",
+          "summary": "Avisos de los proyectos de código abierto incluidos en Gasel.",
+          "updated": "Última actualización: 1 de septiembre de 2026",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Software de código abierto",
+              "body": "Gasel incluye AndroidX y Jetpack Compose, Retrofit y Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, Google Play services, Google Maps SDK y OSRM, distribuidos por sus autores bajo sus licencias aplicables."
+            },
+            {
+              "id": "attribution",
+              "title": "Atribuciones",
+              "body": "La atribución de Google Maps se muestra dentro del SDK del mapa y no debe ocultarse. Las fuentes de datos y los avisos de marcas se detallan en el aviso legal."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex con redondeo máximo. Distribuida bajo la licencia SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "ca": {
+      "tag": "ca-ES",
+      "language_name": "Català",
+      "navigation": {
+        "skip": "Ves al contingut",
+        "documents": "Documents legals",
+        "languages": "Idioma del document"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Política de privacitat",
+          "summary": "Com tracta Gasel les dades, la ubicació i els serveis externs.",
+          "updated": "Última actualització: 1 de setembre de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable i contacte",
+              "body": "Ismael Ares és el responsable de Gasel. Per a consultes de privacitat o suport: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Dades i finalitat",
+              "body": "L’aplicació no crea comptes ni sol·licita nom, correu, telèfon, dades de pagament ni identificadors publicitaris. La ubicació aproximada o precisa és opcional i s’utilitza amb l’aplicació oberta per mostrar estacions properes, ordenar resultats, centrar el mapa i calcular distàncies. Podeu usar l’aplicació sense concedir-la i cercar una zona manualment."
+            },
+            {
+              "id": "services",
+              "title": "Serveis externs",
+              "body": "L’aplicació descarrega dades públiques de preus i descomptes, pot usar geocodificació d’Android i OSRM quan cal, i usa Google Maps SDK. Google pot tractar metadades de sol·licitud i dispositiu segons la seva política de privacitat."
+            },
+            {
+              "id": "security",
+              "title": "Seguretat i compartició",
+              "body": "Les comunicacions usen HTTPS. No venem dades ni incloem publicitat, analítica pròpia o informes d’errors. Compartir una estació o obrir una aplicació de navegació és una acció iniciada per vós."
+            },
+            {
+              "id": "retention",
+              "title": "Conservació i canvis",
+              "body": "Les preferències, favorites, plans de descompte i dades descarregades es desen al dispositiu fins que les elimineu. Aquesta política s’actualitzarà si canvien les pràctiques de dades de l’aplicació."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Avís legal",
+          "summary": "Informació sobre les fonts, atribucions i límits d’ús de Gasel.",
+          "updated": "Última actualització: 1 de setembre de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable i contacte",
+              "body": "Ismael Ares és el responsable de Gasel. Per a consultes de privacitat o suport: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Informació orientativa",
+              "body": "Els preus, horaris, descomptes i distàncies són informatius i poden contenir retards, errors o condicions no reflectides. Verifiqueu sempre la disponibilitat, el preu i les condicions a l’estació."
+            },
+            {
+              "id": "brands",
+              "title": "Serveis i marques",
+              "body": "Gasel no està afiliada ni rep suport del Ministeri, Google, OSRM, OpenStreetMap, els operadors o les marques mostrades. Google Maps és una marca de Google. Les altres marques i logotips pertanyen als seus titulars."
+            },
+            {
+              "id": "use",
+              "title": "Ús",
+              "body": "L’aplicació no substitueix un servei de navegació ni s’ha d’utilitzar per a conducció guiada. Les distàncies són estimacions calculades amb les dades disponibles."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Avisos de codi obert",
+          "summary": "Avisos dels projectes de codi obert inclosos a Gasel.",
+          "updated": "Última actualització: 1 de setembre de 2026",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Programari de codi obert",
+              "body": "Gasel inclou AndroidX i Jetpack Compose, Retrofit i Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, Google Play services, Google Maps SDK i OSRM, distribuïts pels seus autors sota les seves llicències aplicables."
+            },
+            {
+              "id": "attribution",
+              "title": "Atribucions",
+              "body": "L’atribució de Google Maps es mostra dins de l’SDK del mapa i no s’ha d’ocultar. Les fonts de dades i els avisos de marques es detallen a l’avís legal."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex amb arrodoniment màxim. Distribuïda sota la llicència SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "en": {
+      "tag": "en-GB",
+      "language_name": "English",
+      "navigation": {
+        "skip": "Skip to content",
+        "documents": "Legal documents",
+        "languages": "Document language"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Privacy policy",
+          "summary": "How Gasel handles data, location and external services.",
+          "updated": "Last updated: 1 September 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Controller and contact",
+              "body": "Ismael Ares is the controller of Gasel. For privacy queries or support: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Data and purpose",
+              "body": "The app creates no accounts and requests no name, email, telephone number, payment data or advertising identifiers. Approximate or precise location is optional and is used while the app is open to show nearby petrol stations, order results, centre the map and calculate distances. You can use the app without granting it and search an area manually."
+            },
+            {
+              "id": "services",
+              "title": "External services",
+              "body": "The app downloads public price and discount data, may use Android geocoding and OSRM when needed, and uses Google Maps SDK. Google may process request and device metadata under its privacy policy."
+            },
+            {
+              "id": "security",
+              "title": "Security and sharing",
+              "body": "Communications use HTTPS. We do not sell data or include ads, our own analytics or crash reporting. Sharing a petrol station or opening a navigation app is an action initiated by you."
+            },
+            {
+              "id": "retention",
+              "title": "Retention and changes",
+              "body": "Settings, favourites, discount plans and downloaded data remain on the device until you delete them. This policy will be updated when the app’s data practices change."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Legal notice",
+          "summary": "Information about Gasel sources, attributions and limits of use.",
+          "updated": "Last updated: 1 September 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Controller and contact",
+              "body": "Ismael Ares is the controller of Gasel. For privacy queries or support: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Informational data",
+              "body": "Prices, opening hours, discounts and distances are informational and may contain delays, errors or conditions not shown. Always check availability, price and conditions at the petrol station."
+            },
+            {
+              "id": "brands",
+              "title": "Services and trademarks",
+              "body": "Gasel is not affiliated with or endorsed by the Ministry, Google, OSRM, OpenStreetMap, operators or displayed brands. Google Maps is a Google trademark. Other trademarks and logos belong to their owners."
+            },
+            {
+              "id": "use",
+              "title": "Use",
+              "body": "The app does not replace a navigation service and must not be used for guided driving. Distances are estimates calculated from available data."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Open-source notices",
+          "summary": "Notices for the open-source projects included in Gasel.",
+          "updated": "Last updated: 1 September 2026",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Open-source software",
+              "body": "Gasel includes AndroidX and Jetpack Compose, Retrofit and Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, Google Play services, Google Maps SDK and OSRM, distributed by their authors under their applicable licences."
+            },
+            {
+              "id": "attribution",
+              "title": "Attributions",
+              "body": "Google Maps attribution is displayed inside the map SDK and must not be hidden. Data sources and trademark notices are detailed in the legal notice."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex with maximum roundness. Distributed under the SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "fr": {
+      "tag": "fr-FR",
+      "language_name": "Français",
+      "navigation": {
+        "skip": "Aller au contenu",
+        "documents": "Documents juridiques",
+        "languages": "Langue du document"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Politique confidentialité",
+          "summary": "Comment Gasel gère les données, la localisation et les services externes.",
+          "updated": "Dernière mise à jour : 1er septembre 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable du traitement et contact",
+              "body": "Ismaël Ares est le contrôleur de Gasel. Pour des questions de confidentialité ou d'assistance : contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Données et finalité",
+              "body": "L'application ne crée aucun compte et ne demande aucun nom, adresse e-mail, numéro de téléphone, données de paiement ou identifiants publicitaires. L'emplacement approximatif ou précis est facultatif et est utilisé pendant que l'application est ouverte pour afficher les stations-service à proximité, commander les résultats, centrer la carte et calculer les distances. Vous pouvez utiliser l'application sans l'accorder et rechercher manuellement dans une zone."
+            },
+            {
+              "id": "services",
+              "title": "Services externes ",
+              "body": "L'application télécharge les données publiques sur les prix et les remises, peut utiliser le géocodage Android et OSRM si nécessaire, et utilise le SDK Google Maps. Google peut traiter les demandes et les métadonnées de l'appareil conformément à sa politique de confidentialité."
+            },
+            {
+              "id": "security",
+              "title": "Sécurité et partage",
+              "body": "Les communications utilisent HTTPS. Nous ne vendons pas de données ni n'incluons de publicités, nos propres analyses ou rapports d'incident. Partager une station-service ou ouvrir une application de navigation est une action que vous avez initiée."
+            },
+            {
+              "id": "retention",
+              "title": "Conservation et modifications",
+              "body": "Les paramètres, les favoris, les plans de réduction et les données téléchargées restent sur l'appareil jusqu'à ce que vous les supprimiez. Cette politique sera mise à jour lorsque les pratiques de données de l'application changeront."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Mentions légales",
+          "summary": "Informations sur les sources de Gasel, les attributions et les limites d'utilisation.",
+          "updated": "Dernière mise à jour : 1er septembre 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable du traitement et contact",
+              "body": "Ismaël Ares est le contrôleur de Gasel. Pour des questions de confidentialité ou d'assistance : contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Données d'information",
+              "body": "Les prix, les heures d'ouverture, les remises et les distances sont informatifs et peuvent contenir des retards, des erreurs ou des conditions non indiquées. Vérifiez toujours la disponibilité, le prix et les conditions à la station-service."
+            },
+            {
+              "id": "brands",
+              "title": "Services et marques",
+              "body": "Gasel n'est pas affilié ou approuvé par le ministère, Google, OSRM, OpenStreetMap, les opérateurs ou les marques affichées. Google Maps est une marque commerciale de Google. Les autres marques et logos appartiennent à leurs propriétaires."
+            },
+            {
+              "id": "use",
+              "title": "Utilisation",
+              "body": "L'application ne remplace pas un service de navigation et ne doit pas être utilisée pour la conduite guidée. Les distances sont des estimations calculées à partir des données disponibles."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Avis de source ouverte",
+          "summary": "Avis pour les projets open-source inclus dans Gasel.",
+          "updated": "Dernière mise à jour : 1er septembre 2026",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Logiciels open source :",
+              "body": "Gasel comprend AndroidX et Jetpack Compose, Retrofit et Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, les services Google Play, Google Maps SDK et OSRM, distribués par leurs auteurs sous leurs licences applicables."
+            },
+            {
+              "id": "attribution",
+              "title": "Attributions",
+              "body": "L'attribution Google Maps est affichée à l'intérieur du SDK de la carte et ne doit pas être masquée. Les sources de données et les avis relatifs aux marques sont détaillés dans les mentions légales."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex avec un arrondi maximal. Distribuée sous la licence SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "gl": {
+      "tag": "gl-ES",
+      "language_name": "Galego",
+      "navigation": {
+        "skip": "Saltar ao contido",
+        "documents": "Documentos legais",
+        "languages": "Idioma do documento"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Política de privacidade",
+          "summary": "Como trata Gasel os datos, a localización e os servizos externos.",
+          "updated": "Última actualización: 1 de setembro de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable e contacto",
+              "body": "Ismael Ares é o responsable de Gasel. Para consultas de privacidade ou soporte: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Datos e finalidade",
+              "body": "A aplicación non crea contas nin solicita nome, correo, teléfono, datos de pagamento ou identificadores publicitarios. A localización aproximada ou precisa é opcional e úsase coa aplicación aberta para mostrar estacións próximas, ordenar resultados, centrar o mapa e calcular distancias. Pode usar a aplicación sen concedela e buscar unha zona manualmente."
+            },
+            {
+              "id": "services",
+              "title": "Servizos externos",
+              "body": "A aplicación descarga datos públicos de prezos e descontos, pode usar xeocodificación de Android e OSRM cando é necesario, e usa Google Maps SDK. Google pode tratar metadatos de solicitude e dispositivo segundo a súa política de privacidade."
+            },
+            {
+              "id": "security",
+              "title": "Seguridade e compartición",
+              "body": "As comunicacións usan HTTPS. Non vendemos datos nin incluímos publicidade, analítica propia ou informes de fallos. Compartir unha estación ou abrir unha aplicación de navegación é unha acción iniciada por vostede."
+            },
+            {
+              "id": "retention",
+              "title": "Conservación e cambios",
+              "body": "As preferencias, favoritas, plans de desconto e datos descargados gárdanse no dispositivo ata que os elimine. Esta política actualizarase se cambian as prácticas de datos da aplicación."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Aviso legal",
+          "summary": "Información sobre as fontes, atribucións e límites de uso de Gasel.",
+          "updated": "Última actualización: 1 de setembro de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsable e contacto",
+              "body": "Ismael Ares é o responsable de Gasel. Para consultas de privacidade ou soporte: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Información orientativa",
+              "body": "Os prezos, horarios, descontos e distancias son informativos e poden conter atrasos, erros ou condicións non reflectidas. Verifique sempre a dispoñibilidade, o prezo e as condicións na estación."
+            },
+            {
+              "id": "brands",
+              "title": "Servizos e marcas",
+              "body": "Gasel non está afiliada nin respaldada polo Ministerio, Google, OSRM, OpenStreetMap, os operadores ou as marcas mostradas. Google Maps é unha marca de Google. As demais marcas e logotipos pertencen aos seus titulares."
+            },
+            {
+              "id": "use",
+              "title": "Uso",
+              "body": "A aplicación non substitúe un servizo de navegación nin debe utilizarse para condución guiada. As distancias son estimacións calculadas con datos dispoñibles."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Avisos de código aberto",
+          "summary": "Avisos dos proxectos de código aberto incluídos en Gasel.",
+          "updated": "Última actualización: 1 de setembro de 2026",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Software de código aberto",
+              "body": "Gasel inclúe AndroidX e Jetpack Compose, Retrofit e Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, Google Play services, Google Maps SDK e OSRM, distribuídos polos seus autores baixo as súas licenzas aplicables."
+            },
+            {
+              "id": "attribution",
+              "title": "Atribucións",
+              "body": "A atribución de Google Maps móstrase dentro do SDK do mapa e non debe ocultarse. As fontes de datos e os avisos de marcas detállanse no aviso legal."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex co arredondamento máximo. Distribuída baixo a licenza SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "de": {
+      "tag": "de-DE",
+      "language_name": "Deutsch",
+      "navigation": {
+        "skip": "Zum Inhalt springen",
+        "documents": "Rechtliche Dokumente",
+        "languages": "Dokumentsprache"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Datenschutzerklärung",
+          "summary": "Wie Gasel mit Daten, Standort und externen Diensten umgeht.",
+          "updated": "Letzte Aktualisierung: 1. September 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Verantwortlicher und Ansprechpartner",
+              "body": "Ismael Ares ist der Controller von Gasel. Für Datenschutzanfragen oder Support: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Daten und Zweck",
+              "body": "Die App erstellt keine Konten und fordert keine Namen, E-Mail, Telefonnummer, Zahlungsdaten oder Werbekennungen an. Der ungefähre oder genaue Standort ist optional und wird verwendet, während die App geöffnet ist, um Tankstellen in der Nähe anzuzeigen, Ergebnisse zu bestellen, die Karte zu zentrieren und Entfernungen zu berechnen. Sie können die App verwenden, ohne sie zu gewähren, und einen Bereich manuell durchsuchen."
+            },
+            {
+              "id": "services",
+              "title": "Externe Leistungen",
+              "body": "Die App lädt öffentliche Preis- und Rabattdaten herunter, kann bei Bedarf Android-Geocoding und OSRM verwenden und verwendet Google Maps SDK. Google kann im Rahmen seiner Datenschutzrichtlinie Anfrage- und Gerätemetadaten verarbeiten."
+            },
+            {
+              "id": "security",
+              "title": "Sicherheit und Weitergabe",
+              "body": "Die Kommunikation verwendet https. Wir verkaufen keine Daten oder enthalten Anzeigen, unsere eigenen Analysen oder Absturzberichte. Das Teilen einer Tankstelle oder das Öffnen einer Navigations-App ist eine von Ihnen initiierte Aktion."
+            },
+            {
+              "id": "retention",
+              "title": "Aufbewahrung und Änderungen",
+              "body": "Einstellungen, Favoriten, Rabattpläne und heruntergeladene Daten verbleiben auf dem Gerät, bis Sie sie löschen. Diese Richtlinie wird aktualisiert, wenn sich die Datenpraktiken der App ändern."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Rechtliche Hinweise",
+          "summary": "Informationen über Gasel-Quellen, Zuschreibungen und Nutzungsbeschränkungen.",
+          "updated": "Letzte Aktualisierung: 1. September 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Verantwortlicher und Ansprechpartner",
+              "body": "Ismael Ares ist der Controller von Gasel. Für Datenschutzanfragen oder Support: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Informationsdaten",
+              "body": "Preise, Öffnungszeiten, Rabatte und Entfernungen sind informativ und können Verzögerungen, Fehler oder Bedingungen enthalten, die nicht angezeigt werden. Überprüfen Sie immer die Verfügbarkeit, den Preis und die Bedingungen an der Tankstelle."
+            },
+            {
+              "id": "brands",
+              "title": "Dienstleistungen und Marken",
+              "body": "Gasel ist nicht mit dem Ministerium, Google, OSRM, OpenStreetMap, Betreibern oder angezeigten Marken verbunden oder wird von ihnen unterstützt. Google Maps ist eine Marke von Google. Andere Marken und Logos gehören ihren Inhabern."
+            },
+            {
+              "id": "use",
+              "title": "Gebrauch",
+              "body": "Die App ersetzt keinen Navigationsdienst und darf nicht für geführte Fahrten verwendet werden. Entfernungen sind Schätzungen, die aus verfügbaren Daten berechnet werden."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Open-Source-Hinweise",
+          "summary": "Hinweise für die in Gasel enthaltenen Open-Source-Projekte.",
+          "updated": "Letzte Aktualisierung: 1. September 2026",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Open-Source-Software",
+              "body": "Gasel umfasst AndroidX und Jetpack Compose, Retrofit und Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, Google Play-Dienste, Google Maps SDK und OSRM, die von ihren Autoren unter ihren jeweiligen Lizenzen vertrieben werden."
+            },
+            {
+              "id": "attribution",
+              "title": "Zuordnungen ",
+              "body": "Die Google Maps-Attribution wird im Karten-SDK angezeigt und darf nicht ausgeblendet werden. Datenquellen und Markenhinweise sind im Impressum aufgeführt."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex mit maximaler Rundung. Veröffentlicht unter der SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "ja": {
+      "tag": "ja-JP",
+      "language_name": "日本語",
+      "navigation": {
+        "skip": "本文へ移動",
+        "documents": "法的文書",
+        "languages": "文書の言語"
+      },
+      "documents": {
+        "privacy": {
+          "title": "プライバシーポリシー",
+          "summary": "Gaselによるデータ、位置情報、外部サービスの取り扱いについて。",
+          "updated": "最終更新日：2026年9月1日",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "管理者と連絡先",
+              "body": "Gaselのデータ管理者はIsmael Aresです。プライバシーに関するお問い合わせやサポートの連絡先：contact@gasel.uk。"
+            },
+            {
+              "id": "data",
+              "title": "データと利用目的",
+              "body": "本アプリではアカウントを作成せず、氏名、メールアドレス、電話番号、支払い情報、広告識別子を求めません。おおよその位置情報または正確な位置情報の提供は任意です。アプリを開いている間、近くのガソリンスタンドの表示、結果の並べ替え、地図の中心位置の設定、距離の計算に使用します。位置情報を許可せずにアプリを利用し、地域を手動で検索することもできます。"
+            },
+            {
+              "id": "services",
+              "title": "外部サービス",
+              "body": "本アプリは公開されている価格や割引のデータをダウンロードし、必要に応じてAndroidのジオコーディングやOSRMを利用する場合があります。また、Google Maps SDKを使用します。Googleは同社のプライバシーポリシーに基づき、リクエストや端末のメタデータを処理する場合があります。"
+            },
+            {
+              "id": "security",
+              "title": "セキュリティと共有",
+              "body": "通信にはHTTPSを使用します。データの販売は行わず、広告、独自のアクセス解析、クラッシュ報告機能は含まれていません。ガソリンスタンドの共有やナビゲーションアプリの起動は、利用者の操作によって行われます。"
+            },
+            {
+              "id": "retention",
+              "title": "保存期間と変更",
+              "body": "設定、お気に入り、割引プラン、ダウンロード済みのデータは、利用者が削除するまで端末に保存されます。アプリでのデータの取り扱いが変わる場合は、このポリシーを更新します。"
+            }
+          ]
+        },
+        "legal": {
+          "title": "法的通知",
+          "summary": "Gaselの情報源、帰属表示、利用上の制限について。",
+          "updated": "最終更新日：2026年9月1日",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "管理者と連絡先",
+              "body": "Gaselのデータ管理者はIsmael Aresです。プライバシーに関するお問い合わせやサポートの連絡先：contact@gasel.uk。"
+            },
+            {
+              "id": "information",
+              "title": "参考情報",
+              "body": "価格、営業時間、割引、距離は参考情報であり、更新の遅れ、誤り、表示されていない条件がある場合があります。必ずガソリンスタンドで利用可否、価格、条件をご確認ください。"
+            },
+            {
+              "id": "brands",
+              "title": "サービスと商標",
+              "body": "Gaselは、省庁、Google、OSRM、OpenStreetMap、事業者、表示されるブランドと提携しておらず、これらによる推奨も受けていません。Google MapsはGoogleの商標です。その他の商標およびロゴは、それぞれの所有者に帰属します。"
+            },
+            {
+              "id": "use",
+              "title": "利用について",
+              "body": "本アプリはナビゲーションサービスに代わるものではなく、運転中の経路案内には使用できません。距離は利用可能なデータから算出した推定値です。"
+            }
+          ]
+        },
+        "licenses": {
+          "title": "オープンソースに関する通知",
+          "summary": "Gaselに含まれるオープンソースプロジェクトに関する通知。",
+          "updated": "最終更新日：2026年9月1日",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "オープンソースソフトウェア",
+              "body": "GaselにはAndroidX、Jetpack Compose、Retrofit、Gson、Kotlin Coroutines、Accompanist、Coil、Material Kolor、Google Play開発者サービス、Google Maps SDK、OSRMが含まれます。これらは各作者が該当するライセンスに基づいて配布しています。"
+            },
+            {
+              "id": "attribution",
+              "title": "帰属表示",
+              "body": "Google Mapsの帰属表示は地図SDK内に表示され、非表示にしてはいけません。データの情報源や商標に関する通知は、法的通知に記載されています。"
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "丸みを最大に設定したGoogle Sans Flex。SIL Open Font License 1.1に基づいて配布されています。",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "pt": {
+      "tag": "pt-PT",
+      "language_name": "Português",
+      "navigation": {
+        "skip": "Saltar para o conteúdo",
+        "documents": "Documentos legais",
+        "languages": "Idioma do documento"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Política de privacidade",
+          "summary": "Como o Gasel trata os dados, a localização e os serviços externos.",
+          "updated": "Última atualização: 1 de setembro de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsável e contacto",
+              "body": "Ismael Ares é o responsável pelo Gasel. Para questões de privacidade ou apoio: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Dados e finalidade",
+              "body": "A aplicação não cria contas nem solicita nome, correio eletrónico, telefone, dados de pagamento ou identificadores publicitários. A localização aproximada ou precisa é opcional e é usada enquanto a aplicação está aberta para mostrar postos próximos, ordenar resultados, centrar o mapa e calcular distâncias. Pode usar a aplicação sem a conceder e pesquisar uma zona manualmente."
+            },
+            {
+              "id": "services",
+              "title": "Serviços externos",
+              "body": "A aplicação transfere dados públicos de preços e descontos, pode usar a geocodificação do Android e o OSRM quando necessário, e usa o SDK do Google Maps. A Google pode tratar metadados de pedidos e do dispositivo de acordo com a sua política de privacidade."
+            },
+            {
+              "id": "security",
+              "title": "Segurança e partilha",
+              "body": "As comunicações usam HTTPS. Não vendemos dados nem incluímos publicidade, análises próprias ou relatórios de falhas. Partilhar um posto de combustível ou abrir uma aplicação de navegação é uma ação iniciada por si."
+            },
+            {
+              "id": "retention",
+              "title": "Conservação e alterações",
+              "body": "As preferências, os favoritos, os planos de desconto e os dados transferidos permanecem no dispositivo até que os elimine. Esta política será atualizada quando as práticas de dados da aplicação mudarem."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Aviso legal",
+          "summary": "Informação sobre as fontes, atribuições e limites de utilização do Gasel.",
+          "updated": "Última atualização: 1 de setembro de 2026",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Responsável e contacto",
+              "body": "Ismael Ares é o responsável pelo Gasel. Para questões de privacidade ou apoio: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Informação indicativa",
+              "body": "Os preços, horários, descontos e distâncias são informativos e podem conter atrasos, erros ou condições não apresentadas. Verifique sempre a disponibilidade, o preço e as condições no posto."
+            },
+            {
+              "id": "brands",
+              "title": "Serviços e marcas",
+              "body": "O Gasel não é afiliado nem é apoiado pelo Ministério, Google, OSRM, OpenStreetMap, operadores ou marcas apresentadas. Google Maps é uma marca da Google. As restantes marcas e logótipos pertencem aos seus titulares."
+            },
+            {
+              "id": "use",
+              "title": "Utilização",
+              "body": "A aplicação não substitui um serviço de navegação e não deve ser usada para condução guiada. As distâncias são estimativas calculadas com os dados disponíveis."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Avisos de código aberto",
+          "summary": "Avisos dos projetos de código aberto incluídos no Gasel.",
+          "updated": "Última atualização: 1 de setembro de 2026",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Software de código aberto",
+              "body": "O Gasel inclui AndroidX e Jetpack Compose, Retrofit e Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, serviços Google Play, SDK do Google Maps e OSRM, distribuídos pelos seus autores sob as licenças aplicáveis."
+            },
+            {
+              "id": "attribution",
+              "title": "Atribuições",
+              "body": "A atribuição do Google Maps é apresentada dentro do SDK do mapa e não deve ser ocultada. As fontes de dados e os avisos de marcas são detalhados no aviso legal."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex com arredondamento máximo. Distribuída sob a licença SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    },
+    "ru": {
+      "tag": "ru-RU",
+      "language_name": "Русский",
+      "navigation": {
+        "skip": "Перейти к содержимому",
+        "documents": "Юридические документы",
+        "languages": "Язык документа"
+      },
+      "documents": {
+        "privacy": {
+          "title": "Политика конфиденциальности",
+          "summary": "Как Gasel обрабатывает данные, местоположение и внешние сервисы.",
+          "updated": "Последнее обновление: 1 сентября 2026 г.",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Оператор и контакты",
+              "body": "Исмаэль Арес является оператором Gasel. Вопросы о конфиденциальности и поддержке: contact@gasel.uk."
+            },
+            {
+              "id": "data",
+              "title": "Данные и цели обработки",
+              "body": "Приложение не создаёт учётных записей и не запрашивает имя, электронную почту, номер телефона, платёжные данные или рекламные идентификаторы. Приблизительное или точное местоположение необязательно и используется, пока приложение открыто, для показа ближайших АЗС, сортировки результатов, центрирования карты и расчёта расстояний. Приложением можно пользоваться без этого разрешения и искать область вручную."
+            },
+            {
+              "id": "services",
+              "title": "Внешние сервисы",
+              "body": "Приложение загружает общедоступные данные о ценах и скидках, при необходимости может использовать геокодирование Android и OSRM, а также использует Google Maps SDK. Google может обрабатывать метаданные запросов и устройства в соответствии со своей политикой конфиденциальности."
+            },
+            {
+              "id": "security",
+              "title": "Безопасность и передача данных",
+              "body": "Соединения используют HTTPS. Мы не продаём данные и не включаем рекламу, собственную аналитику или отчёты о сбоях. Отправка АЗС или открытие навигационного приложения выполняются по вашей инициативе."
+            },
+            {
+              "id": "retention",
+              "title": "Хранение и изменения",
+              "body": "Настройки, избранное, планы скидок и загруженные данные остаются на устройстве, пока вы их не удалите. Эта политика будет обновлена при изменении практик работы приложения с данными."
+            }
+          ]
+        },
+        "legal": {
+          "title": "Правовая информация",
+          "summary": "Сведения об источниках, атрибуции и ограничениях использования Gasel.",
+          "updated": "Последнее обновление: 1 сентября 2026 г.",
+          "sections": [
+            {
+              "id": "controller",
+              "title": "Оператор и контакты",
+              "body": "Исмаэль Арес является оператором Gasel. Вопросы о конфиденциальности и поддержке: contact@gasel.uk."
+            },
+            {
+              "id": "information",
+              "title": "Справочные данные",
+              "body": "Цены, часы работы, скидки и расстояния приведены для информации и могут содержать задержки, ошибки или неуказанные условия. Всегда проверяйте доступность, цену и условия на АЗС."
+            },
+            {
+              "id": "brands",
+              "title": "Сервисы и товарные знаки",
+              "body": "Gasel не связан с Министерством, Google, OSRM, OpenStreetMap, операторами или показанными брендами и не одобрен ими. Google Maps является товарным знаком Google. Другие товарные знаки и логотипы принадлежат их владельцам."
+            },
+            {
+              "id": "use",
+              "title": "Использование",
+              "body": "Приложение не заменяет навигационный сервис и не должно использоваться для ведения автомобиля по маршруту. Расстояния являются оценками на основе доступных данных."
+            }
+          ]
+        },
+        "licenses": {
+          "title": "Уведомления об открытом ПО",
+          "summary": "Уведомления о проектах с открытым исходным кодом, входящих в Gasel.",
+          "updated": "Последнее обновление: 1 сентября 2026 г.",
+          "sections": [
+            {
+              "id": "licenses",
+              "title": "Программное обеспечение с открытым исходным кодом",
+              "body": "Gasel включает AndroidX и Jetpack Compose, Retrofit и Gson, Kotlin Coroutines, Accompanist, Coil, Material Kolor, сервисы Google Play, Google Maps SDK и OSRM, распространяемые их авторами на условиях соответствующих лицензий."
+            },
+            {
+              "id": "attribution",
+              "title": "Атрибуция",
+              "body": "Атрибуция Google Maps отображается внутри SDK карты и не должна скрываться. Источники данных и уведомления о товарных знаках подробно описаны в юридической информации."
+            },
+            {
+              "id": "font",
+              "title": "Google Sans Flex",
+              "body": "Google Sans Flex с максимальным скруглением. Распространяется по лицензии SIL Open Font License 1.1.",
+              "license_file": "licenses/google-sans-flex.txt"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
