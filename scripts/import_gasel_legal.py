@@ -14,16 +14,53 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LANGUAGES = (
-    ("eu", "eu-ES", "values-eu-rES", "Euskara"),
-    ("es", "es-ES", "values", "Castellano"),
-    ("ca", "ca-ES", "values-ca-rES", "Català"),
-    ("en", "en-GB", "values-en-rGB", "English"),
-    ("fr", "fr-FR", "values-fr-rFR", "Français"),
-    ("gl", "gl-ES", "values-gl-rES", "Galego"),
-    ("de", "de-DE", "values-de-rDE", "Deutsch"),
-    ("ja", "ja-JP", "values-ja-rJP", "日本語"),
-    ("pt", "pt-PT", "values-pt-rPT", "Português"),
-    ("ru", "ru-RU", "values-ru-rRU", "Русский"),
+    ("sq", "sq-AL", "values-sq-rAL"),
+    ("ar", "ar-MA", "values-ar-rMA"),
+    ("oc-aranes", "oc-ES-aranes", "values-b+oc+ES+aranes"),
+    ("ast", "ast-ES", "values-b+ast+ES"),
+    ("eu", "eu-ES", "values-eu-rES"),
+    ("bs", "bs-BA", "values-bs-rBA"),
+    ("bg", "bg-BG", "values-bg-rBG"),
+    ("es", "es-ES", "values"),
+    ("ca", "ca-ES", "values-ca-rES"),
+    ("zh", "zh-CN", "values-zh-rCN"),
+    ("hr", "hr-HR", "values-hr-rHR"),
+    ("cs", "cs-CZ", "values-cs-rCZ"),
+    ("da", "da-DK", "values-da-rDK"),
+    ("nl", "nl-NL", "values-nl-rNL"),
+    ("en", "en-GB", "values-en-rGB"),
+    ("en-us", "en-US", "values-en-rUS"),
+    ("et", "et-EE", "values-et-rEE"),
+    ("fi", "fi-FI", "values-fi-rFI"),
+    ("fr", "fr-FR", "values-fr-rFR"),
+    ("gl", "gl-ES", "values-gl-rES"),
+    ("de", "de-DE", "values-de-rDE"),
+    ("hi", "hi-IN", "values-hi-rIN"),
+    ("hu", "hu-HU", "values-hu-rHU"),
+    ("is", "is-IS", "values-is-rIS"),
+    ("it", "it-IT", "values-it-rIT"),
+    ("ja", "ja-JP", "values-ja-rJP"),
+    ("ko", "ko-KR", "values-ko-rKR"),
+    ("lv", "lv-LV", "values-lv-rLV"),
+    ("lt", "lt-LT", "values-lt-rLT"),
+    ("mk", "mk-MK", "values-mk-rMK"),
+    ("cnr", "cnr-Latn-ME", "values-b+cnr+Latn+ME"),
+    ("nb", "nb-NO", "values-nb-rNO"),
+    ("pl", "pl-PL", "values-pl-rPL"),
+    ("pt-br", "pt-BR", "values-pt-rBR"),
+    ("pt", "pt-PT", "values-pt-rPT"),
+    ("ro", "ro-RO", "values-ro-rRO"),
+    ("ru", "ru-RU", "values-ru-rRU"),
+    ("sr-cyrl", "sr-Cyrl-RS", "values-b+sr+Cyrl+RS"),
+    ("sr-latn", "sr-Latn-RS", "values-b+sr+Latn+RS"),
+    ("sk", "sk-SK", "values-sk-rSK"),
+    ("sl", "sl-SI", "values-sl-rSI"),
+    ("sv", "sv-SE", "values-sv-rSE"),
+    ("rif", "rif-Latn-MA", "values-b+rif+Latn+MA"),
+    ("tr", "tr-TR", "values-tr-rTR"),
+    ("uk", "uk-UA", "values-uk-rUA"),
+    ("ur", "ur-PK", "values-ur-rPK"),
+    ("ca-valencia", "ca-ES-valencia", "values-b+ca+ES+valencia"),
 )
 DOCUMENTS = (
     ("privacy", "about_privacy_policy", "legal_privacy_summary", ("controller", "data", "services", "security", "retention")),
@@ -44,22 +81,83 @@ SECTION_KEYS = {
     "font": "font",
 }
 NAV_LABELS = {
+    "sq": {"skip": "Kalo te përmbajtja", "documents": "Dokumente ligjore", "languages": "Gjuha e dokumentit"},
+    "ar": {"skip": "انتقل إلى المحتوى", "documents": "المستندات القانونية", "languages": "لغة المستند"},
+    "oc-aranes": {"skip": "Ves tath contengut", "documents": "Documents legaus", "languages": "Lengua deth document"},
+    "ast": {"skip": "Saltar al conteníu", "documents": "Documentos llexales", "languages": "Llingua del documentu"},
     "eu": {"skip": "Saltatu edukira", "documents": "Legezko dokumentuak", "languages": "Dokumentuaren hizkuntza"},
+    "bs": {"skip": "Preskoči na sadržaj", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
+    "bg": {"skip": "Към съдържанието", "documents": "Правни документи", "languages": "Език на документа"},
     "es": {"skip": "Saltar al contenido", "documents": "Documentos legales", "languages": "Idioma del documento"},
     "ca": {"skip": "Ves al contingut", "documents": "Documents legals", "languages": "Idioma del document"},
+    "zh": {"skip": "跳转到正文", "documents": "法律文件", "languages": "文档语言"},
+    "hr": {"skip": "Preskoči na sadržaj", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
+    "cs": {"skip": "Přejít k obsahu", "documents": "Právní dokumenty", "languages": "Jazyk dokumentu"},
+    "da": {"skip": "Gå til indholdet", "documents": "Juridiske dokumenter", "languages": "Dokumentets sprog"},
+    "nl": {"skip": "Ga naar de inhoud", "documents": "Juridische documenten", "languages": "Documenttaal"},
     "en": {"skip": "Skip to content", "documents": "Legal documents", "languages": "Document language"},
+    "en-us": {"skip": "Skip to content", "documents": "Legal documents", "languages": "Document language"},
+    "et": {"skip": "Liigu sisu juurde", "documents": "Õigusdokumendid", "languages": "Dokumendi keel"},
+    "fi": {"skip": "Siirry sisältöön", "documents": "Oikeudelliset asiakirjat", "languages": "Asiakirjan kieli"},
     "fr": {"skip": "Aller au contenu", "documents": "Documents juridiques", "languages": "Langue du document"},
     "gl": {"skip": "Saltar ao contido", "documents": "Documentos legais", "languages": "Idioma do documento"},
     "de": {"skip": "Zum Inhalt springen", "documents": "Rechtliche Dokumente", "languages": "Dokumentsprache"},
+    "hi": {"skip": "मुख्य सामग्री पर जाएँ", "documents": "कानूनी दस्तावेज़", "languages": "दस्तावेज़ की भाषा"},
+    "hu": {"skip": "Ugrás a tartalomhoz", "documents": "Jogi dokumentumok", "languages": "A dokumentum nyelve"},
+    "is": {"skip": "Fara í efnið", "documents": "Lagaleg skjöl", "languages": "Tungumál skjalsins"},
+    "it": {"skip": "Vai al contenuto", "documents": "Documenti legali", "languages": "Lingua del documento"},
     "ja": {"skip": "本文へ移動", "documents": "法的文書", "languages": "文書の言語"},
+    "ko": {"skip": "본문으로 건너뛰기", "documents": "법률 문서", "languages": "문서 언어"},
+    "lv": {"skip": "Pāriet uz saturu", "documents": "Juridiskie dokumenti", "languages": "Dokumenta valoda"},
+    "lt": {"skip": "Pereiti prie turinio", "documents": "Teisiniai dokumentai", "languages": "Dokumento kalba"},
+    "mk": {"skip": "Прескокни до содржината", "documents": "Правни документи", "languages": "Јазик на документот"},
+    "cnr": {"skip": "Preskoči na sadržaj", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
+    "nb": {"skip": "Hopp til innholdet", "documents": "Juridiske dokumenter", "languages": "Dokumentspråk"},
+    "pl": {"skip": "Przejdź do treści", "documents": "Dokumenty prawne", "languages": "Język dokumentu"},
     "pt": {"skip": "Saltar para o conteúdo", "documents": "Documentos legais", "languages": "Idioma do documento"},
+    "pt-br": {"skip": "Pular para o conteúdo", "documents": "Documentos legais", "languages": "Idioma do documento"},
+    "ro": {"skip": "Sari la conținut", "documents": "Documente juridice", "languages": "Limba documentului"},
     "ru": {"skip": "Перейти к содержимому", "documents": "Юридические документы", "languages": "Язык документа"},
+    "sr-cyrl": {"skip": "Пређи на садржај", "documents": "Правна документа", "languages": "Језик документа"},
+    "sr-latn": {"skip": "Pređi na sadržaj", "documents": "Pravna dokumenta", "languages": "Jezik dokumenta"},
+    "sk": {"skip": "Preskočiť na obsah", "documents": "Právne dokumenty", "languages": "Jazyk dokumentu"},
+    "sl": {"skip": "Preskoči na vsebino", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
+    "sv": {"skip": "Hoppa till innehållet", "documents": "Juridiska dokument", "languages": "Dokumentspråk"},
+    "rif": {"skip": "Awiḍ ɣer ugbur", "documents": "Isɣawalen n lqanun", "languages": "Tutlayt n usebter"},
+    "tr": {"skip": "İçeriğe atla", "documents": "Yasal belgeler", "languages": "Belge dili"},
+    "uk": {"skip": "Перейти до вмісту", "documents": "Юридичні документи", "languages": "Мова документа"},
+    "ur": {"skip": "مواد پر جائیں", "documents": "قانونی دستاویزات", "languages": "دستاویز کی زبان"},
+    "ca-valencia": {"skip": "Ves al contingut", "documents": "Documents legals", "languages": "Idioma del document"},
 }
 LANGUAGE_NAME_KEYS = {
-    "eu": "language_basque", "es": "language_castilian", "ca": "language_catalan",
-    "en": "language_english", "fr": "language_french", "gl": "language_galician",
-    "de": "language_german", "ja": "language_japanese", "pt": "language_portuguese",
+    "sq": "language_albanian",
+    "ar": "language_arabic",
+    "oc-aranes": "language_aranese", "ast": "language_asturian",
+    "eu": "language_basque", "bg": "language_bulgarian",
+    "bs": "language_bosnian",
+    "es": "language_castilian", "ca": "language_catalan",
+    "hr": "language_croatian", "cs": "language_czech",
+    "da": "language_danish", "en": "language_english", "en-us": "language_english_us",
+    "fi": "language_finnish", "fr": "language_french", "gl": "language_galician",
+    "et": "language_estonian",
+    "de": "language_german", "it": "language_italian", "ja": "language_japanese", "pt": "language_portuguese",
+    "pt-br": "language_portuguese_brazil",
+    "hi": "language_hindi",
+    "hu": "language_hungarian", "is": "language_icelandic",
+    "ko": "language_korean",
+    "nl": "language_dutch",
+    "lv": "language_latvian", "lt": "language_lithuanian",
+    "mk": "language_macedonian", "cnr": "language_montenegrin",
+    "zh": "language_chinese_simplified",
+    "pl": "language_polish",
+    "ro": "language_romanian",
     "ru": "language_russian",
+    "sr-cyrl": "language_serbian_cyrillic", "sr-latn": "language_serbian_latin",
+    "sk": "language_slovak", "sl": "language_slovenian",
+    "tr": "language_turkish",
+    "nb": "language_norwegian_bokmal", "sv": "language_swedish",
+    "rif": "language_tarifit", "uk": "language_ukrainian", "ur": "language_urdu",
+    "ca-valencia": "language_valencian",
 }
 
 
@@ -114,12 +212,13 @@ def build_content(gasel_root: Path) -> tuple[dict[str, object], bytes]:
     locales: dict[str, object] = {}
     source_hashes: dict[str, str] = {}
 
-    for lang, tag, folder, language_name in LANGUAGES:
+    for lang, tag, folder in LANGUAGES:
         res = gasel_root / "app/src/main/res" / folder
         strings_path = res / "strings.xml"
         legal_path = res / "legal.xml"
         strings = read_android_strings(strings_path, lang)
         legal = read_android_strings(legal_path, lang)
+        language_name = required(strings, LANGUAGE_NAME_KEYS[lang], lang)
         source_hashes[lang] = hashlib.sha256(
             strings_path.read_bytes() + b"\0" + legal_path.read_bytes()
         ).hexdigest()
@@ -142,12 +241,15 @@ def build_content(gasel_root: Path) -> tuple[dict[str, object], bytes]:
                 "updated": required(legal, "legal_last_updated", lang),
                 "sections": sections,
             }
-        locales[lang] = {
+        locale = {
             "tag": tag,
             "language_name": language_name,
             "navigation": NAV_LABELS[lang],
             "documents": docs,
         }
+        if lang in {"ar", "ur"}:
+            locale["direction"] = "rtl"
+        locales[lang] = locale
 
     content: dict[str, object] = {
         "schema_version": 1,
@@ -186,7 +288,7 @@ def main() -> int:
         content_path.write_bytes(expected_content)
         license_path.parent.mkdir(parents=True, exist_ok=True)
         license_path.write_bytes(license_bytes)
-        print("Imported ten legal catalogs and the complete Google Sans Flex license.")
+        print(f"Imported {len(LANGUAGES)} legal catalogs and the complete Google Sans Flex license.")
         return 0
 
     problems = []
@@ -197,7 +299,7 @@ def main() -> int:
     if problems:
         print("Import check failed:\n" + "\n".join(f"- {problem}" for problem in problems), file=sys.stderr)
         return 1
-    print("Import check passed: ten legal catalogs and the complete license match Gasel.")
+    print(f"Import check passed: {len(LANGUAGES)} legal catalogs and the complete license match Gasel.")
     return 0
 
 

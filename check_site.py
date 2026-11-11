@@ -20,6 +20,7 @@ class PageParser(html.parser.HTMLParser):
         super().__init__(convert_charrefs=True)
         self.stack: list[tuple[str, dict[str, str | None]]] = []
         self.html_lang = ""
+        self.html_dir = "ltr"
         self.title = ""
         self.title_depth = 0
         self.h1: list[str] = []
@@ -37,6 +38,7 @@ class PageParser(html.parser.HTMLParser):
         self.anchors: list[str] = []
         self.license_text: list[str] = []
         self.license_depth = 0
+        self.license_dir = ""
         self.logos: list[dict[str, str | None]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -45,6 +47,7 @@ class PageParser(html.parser.HTMLParser):
             self.inline_styles += 1
         if tag == "html":
             self.html_lang = values.get("lang") or ""
+            self.html_dir = values.get("dir") or "ltr"
         if tag == "title":
             self.title_depth += 1
         if tag == "h1":
@@ -79,6 +82,7 @@ class PageParser(html.parser.HTMLParser):
             self.logos.append(values)
         if tag == "pre" and "license-text" in (values.get("class") or "").split():
             self.license_depth += 1
+            self.license_dir = values.get("dir") or ""
         if "id" in values:
             self.ids.append(values["id"] or "")
         if tag not in {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"}:
@@ -187,6 +191,10 @@ def validate(root: Path = ROOT) -> list[str]:
             expected = language["documents"][document_id]
             if page.html_lang != language["tag"]:
                 errors.append(f"{filename} has the wrong html lang")
+            if page.html_dir != language.get("direction", "ltr"):
+                errors.append(f"{filename} has the wrong html direction")
+            if document_id == "licenses" and page.license_dir != "ltr":
+                errors.append(f"{filename} must keep the source license left-to-right")
             if not page.title.strip() or len(page.h1) != 1 or page.h1[0].strip() != expected["title"]:
                 errors.append(f"{filename} needs a non-empty browser title and the expected single h1")
             if page.mains != 1 or page.articles != 1:

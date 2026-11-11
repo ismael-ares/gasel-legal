@@ -45,6 +45,14 @@ class LegalSiteTests(unittest.TestCase):
         path.write_text(html, encoding="utf-8")
         self.assertTrue(any("privacy-ja.html has the wrong html lang" in error for error in self.errors()))
 
+    def test_rtl_pages_use_rtl_and_license_remains_ltr(self) -> None:
+        for locale in ("ar", "ur"):
+            privacy = check_site.parse_page(self.site / f"privacy-{locale}.html")
+            licenses = check_site.parse_page(self.site / f"licenses-{locale}.html")
+            self.assertEqual("rtl", privacy.html_dir)
+            self.assertEqual("rtl", licenses.html_dir)
+            self.assertEqual("ltr", licenses.license_dir)
+
     def test_truncated_license_is_reported(self) -> None:
         path = self.site / "licenses-ja.html"
         html = path.read_text(encoding="utf-8").replace("TERMINATION", "", 1)

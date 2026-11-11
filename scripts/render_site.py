@@ -27,7 +27,7 @@ def html_text(value: str, contact_email: str | None) -> str:
         escaped_email = html.escape(contact_email, quote=True)
         escaped = escaped.replace(
             escaped_email,
-            f'<a href="mailto:{label}">{label}</a>',
+            f'<a href="mailto:{label}" dir="ltr">{label}</a>',
         )
     return escaped
 
@@ -80,7 +80,7 @@ def render_document(
         license_block = ""
         if section.get("license_file"):
             license_block = (
-                '<pre class="license-text" aria-label="Google Sans Flex SIL Open Font License">'
+                '<pre class="license-text" lang="en" dir="ltr" aria-label="Google Sans Flex SIL Open Font License">'
                 f"{html.escape(license_text, quote=False)}</pre>"
             )
         license_markup = f"  {license_block}\n" if license_block else ""
@@ -94,8 +94,10 @@ def render_document(
 
     title = html.escape(document["title"])
     nav = language["navigation"]
+    direction = language.get("direction", "ltr")
+    direction_attribute = f' dir="{html.escape(direction, quote=True)}"' if direction != "ltr" else ""
     return f'''<!doctype html>
-<html lang="{html.escape(language["tag"], quote=True)}">
+<html lang="{html.escape(language["tag"], quote=True)}"{direction_attribute}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

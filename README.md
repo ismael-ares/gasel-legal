@@ -2,7 +2,7 @@
 
 This repository contains the public privacy policy, legal notice and open-source notices for Gasel. The site is static HTML and CSS: reading a document does not require JavaScript, a build service, a CDN or a network request for fonts. Its import, render and validation scripts use Python 3.10 or newer and the standard library.
 
-The thirty public pages are generated from Gasel Android's ten localized `legal.xml` resources and the corresponding document titles in `strings.xml`. `content.json` records the imported content and stable SHA-256 hashes for each source catalog and the original Google Sans Flex license. The HTML files are generated output; do not edit their text or navigation by hand.
+The one hundred forty-one public pages are generated from Gasel Android's forty-seven localized `legal.xml` resources and the corresponding document titles in `strings.xml`. `content.json` records the imported content and stable SHA-256 hashes for each source catalog and the original Google Sans Flex license. The HTML files are generated output; do not edit their text or navigation by hand.
 
 ## Update content from Gasel
 
@@ -26,7 +26,7 @@ The source license is copied byte for byte from `app/src/main/res/raw/google_san
 
 Change `scripts/render_site.py` for document structure or navigation, then run `python3 scripts/render_site.py --write`. Change `styles.css` for presentation. The renderer escapes all imported content; the only generated inline links are email addresses already present in the privacy contact section. Do not put HTML markup in a legal string.
 
-All paths used by `LegalDocument.webUrl` remain stable. There are three document pages for each language, and changing the document or language retains the other selection. Language names use Gasel's stable order: Euskara, Castellano, Català, English, Français, Galego, Deutsch, 日本語, Português, Русский. `index.html` is a direct Spanish privacy fallback and never redirects based on the browser language.
+All paths used by `LegalDocument.webUrl` remain stable. There are three document pages for each language, and changing the document or language retains the other selection. Language names come from Gasel's localized catalogs in its stable order: Albanian, Arabic, Aranese, Asturian, Basque, Bosnian, Bulgarian, Castilian, Catalan, Chinese (Simplified), Croatian, Czech, Danish, Dutch, English (UK), English (US), Estonian, Finnish, French, Galician, German, Hindi, Hungarian, Icelandic, Italian, Japanese, Korean, Latvian, Lithuanian, Macedonian, Montenegrin, Norwegian Bokmål, Polish, Portuguese (Brazil), Portuguese (Portugal), Romanian, Russian, Serbian (Cyrillic), Serbian (Latin), Slovak, Slovenian, Swedish, Tarifit, Turkish, Ukrainian, Urdu and Valencian. Arabic and Urdu pages declare right-to-left direction while the embedded English font license and email links remain left-to-right. `index.html` is a direct Spanish privacy fallback and never redirects based on the browser language.
 
 The single `styles.css` uses the Gasel palette in light and dark system themes. It uses system fonts, supports reflow at 320 CSS pixels and 200% zoom, and keeps the full font license in the document flow. No page embeds CSS or requires JavaScript. `check_site.py` parses the pages locally, checks routes, labels, current-page states, language metadata, assets, source license and deterministic output; it does not contact the network.
 
@@ -42,6 +42,6 @@ Serve the repository root and open the URL in a browser:
 python3 -m http.server 8000 --bind 127.0.0.1
 ```
 
-Review representative Spanish, Japanese and German pages in light and dark modes at 320, 390, 768 and 1280 CSS pixels. Check keyboard focus, 200% zoom, print layout, and the full license on a licenses page. Stop the temporary server when the review is complete.
+Review representative Spanish, Arabic, Dutch, Japanese and German pages in light and dark modes at 320, 390, 768 and 1280 CSS pixels. Check keyboard focus, 200% zoom, print layout, and the full license on a licenses page. Stop the temporary server when the review is complete.
 
 GitHub Pages publication is configured outside this content workflow. Do not publish by pushing this branch or enabling Pages as part of a local content change; verify the deployed pages separately after an explicitly authorized deployment.
