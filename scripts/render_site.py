@@ -12,19 +12,17 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_URL = "https://gasel.yvel.uk"
 EMAIL_RE = re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", re.I)
-DOMAIN_LINKS = {
-    "routing.openstreetmap.de/about.html": "https://routing.openstreetmap.de/about.html",
-    "policies.google.com/privacy": "https://policies.google.com/privacy",
-    "google.com/help/terms_maps": "https://maps.google.com/help/terms_maps/",
-    "openstreetmap.org/copyright": "https://www.openstreetmap.org/copyright",
-    "router.project-osrm.org": "https://router.project-osrm.org/",
-    "aepd.es": "https://www.aepd.es/",
-}
 DOCS = ("privacy", "legal", "licenses")
 ANCHORS = {"privacy": "privacy", "legal": "legal", "licenses": "open-source"}
-ASSETS = ("apache-license-2.0.txt", "flag-icons-mit.txt", "google-sans-flex.txt", "material-kolor-mit.txt")
+
+
+def site_url(content: dict[str, Any]) -> str:
+    return content["registry"]["website_base"].rstrip("/")
+
+
+def asset_files(content: dict[str, Any]) -> tuple[str, ...]:
+    return tuple(component["site_file"].removeprefix("licenses/") for component in content["registry"]["components"] if component.get("site_file"))
 
 
 def hero_burst_path() -> str:
@@ -45,10 +43,10 @@ def page_name(document: str, locale: str) -> str:
 
 def language_alternates(content: dict[str, Any]) -> str:
     links = [
-        f'<link rel="alternate" hreflang="{h(language["tag"])}" href="{SITE_URL}/{page_name("privacy", locale)}">'
+        f'<link rel="alternate" hreflang="{h(language["tag"])}" href="{site_url(content)}/{page_name("privacy", locale)}">'
         for locale, language in content["locales"].items()
     ]
-    links.append(f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}/privacy.html">')
+    links.append(f'<link rel="alternate" hreflang="x-default" href="{site_url(content)}/privacy.html">')
     return "".join(links)
 
 
@@ -56,14 +54,17 @@ def h(value: str) -> str:
     return html.escape(value, quote=True)
 
 
-def body_markup(value: str) -> str:
+def body_markup(value: str, registry: dict[str, Any]) -> str:
     contact = EMAIL_RE.search(value)
     escaped = h(value)
     if contact:
         addr = h(contact.group(0))
         escaped = escaped.replace(addr, f'<a href="mailto:{addr}" dir="ltr">{addr}</a>')
-    for domain, href in DOMAIN_LINKS.items():
-        escaped = re.sub(rf"(?<![\w@/=]){re.escape(domain)}(?![\w.-])", f'<a href="{href}">{domain}</a>', escaped, flags=re.I)
+    for entry in (*registry["links"], *registry["services"]):
+        domain = entry.get("match_text")
+        if domain:
+            href = h(entry["url"])
+            escaped = re.sub(rf"(?<![\w@/=]){re.escape(domain)}(?![\w.-])", f'<a href="{href}">{domain}</a>', escaped, flags=re.I)
     return "\n".join(f"<p>{p.replace(chr(10), '<br>')}</p>" for p in re.split(r"\n\s*\n", escaped.strip()))
 
 
@@ -90,7 +91,8 @@ def render_redirect(content: dict[str, Any], locale: str, document_id: str) -> s
     title_key = "legal_notice_title" if document_id == "legal" else "legal_licenses_title"
     title = strings[title_key]
     auto = f'<script>location.replace({json.dumps(target)});</script>'
-    canonical = f'{SITE_URL}/{page_name("privacy", locale)}'
+    registry = content["registry"]
+    canonical = f'{site_url(content)}/{page_name("privacy", locale)}'
     return f'''<!doctype html>
 <html lang="{h(language["tag"])}"{' dir="rtl"' if language.get("direction") == "rtl" else ""}><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta http-equiv="refresh" content="0;url={h(target)}"><title>{h(title)} | Gasel</title><link rel="canonical" href="{canonical}">{language_alternates(content)}<link rel="stylesheet" href="styles.css"><script defer src="site.js"></script></head>
@@ -102,8 +104,9 @@ def render_document(content: dict[str, Any], locale: str, document_id: str, lice
         return render_redirect(content, locale, document_id)
     language = content["locales"][locale]
     s = language["strings"]
+    registry = content["registry"]
     direction = ' dir="rtl"' if language.get("direction") == "rtl" else ""
-    canonical = f'{SITE_URL}/{page_name("privacy", locale)}'
+    canonical = f'{site_url(content)}/{page_name("privacy", locale)}'
 
     facts = []
     for item in ("account", "ads", "location", "device", "prices", "outbound"):
@@ -113,66 +116,58 @@ def render_document(content: dict[str, Any], locale: str, document_id: str, lice
     use_headers = [s[f"legal_uses_col_{key}"] for key in ("data", "purpose", "leaves")]
     use_table = table(use_headers, use_rows, use_headers)
     service_cards = []
-    for item in ("ministry", "osrm", "maps", "geocoder", "backup"):
-        service_url = {"ministry": "https://geoportalgasolineras.es/geoportal-instalaciones/Inicio", "osrm": "https://router.project-osrm.org/", "maps": "https://policies.google.com/privacy"}.get(item)
-        service_name = h(s[f"legal_svc_{item}_name"])
+    for service in registry["services"]:
+        item = service["id"]
+        service_url = service["url"]
+        service_name = h(s[f"{service['string_prefix']}_name"])
         if service_url: service_name = f'<a href="{service_url}">{service_name}</a>'
-        service_cards.append(f'<article class="service"><span class="service-tag">{h(s[f"legal_svc_{item}_tag"])}</span><h4>{service_name}</h4>{body_markup(s[f"legal_svc_{item}_body"])}</article>')
+        prefix = service["string_prefix"]
+        service_cards.append(f'<article class="service"><span class="service-tag">{h(s[f"{prefix}_tag"])}</span><h4>{service_name}</h4>{body_markup(s[f"{prefix}_body"], registry)}</article>')
     storage_rows = [[s[f"legal_storage_{item}_{field}"] for field in ("data", "time", "backup")] for item in ("prefs", "area", "distances", "cache", "report")]
     storage_headers = [s[f"legal_storage_col_{key}"] for key in ("data", "time", "backup")]
     storage_table = table(storage_headers, storage_rows, storage_headers)
     rights = '<ul class="rights">' + "".join(f"<li>{h(s[f'legal_right_{key}'])}</li>" for key in ("access", "rectification", "erasure", "restriction", "objection", "portability")) + "</ul>"
 
     privacy_blocks = [
-        page_section("p-controller", s["legal_p_controller_title"], body_markup(s["legal_p_controller_body_1"])),
-        page_section("p-uses", s["legal_p_uses_title"], use_table + body_markup(s["legal_p_uses_body_1"] + "\n\n" + s["legal_p_uses_body_2"])),
-        page_section("p-sharing", s["legal_p_sharing_title"], body_markup(s["legal_p_sharing_body_1"]) + '<div class="services">' + "".join(service_cards) + '</div>' + body_markup(s["legal_p_sharing_body_2"])),
-        page_section("p-storage", s["legal_p_storage_title"], storage_table + body_markup(s["legal_p_storage_body_1"])),
+        page_section("p-controller", s["legal_p_controller_title"], body_markup(s["legal_p_controller_body_1"], registry)),
+        page_section("p-uses", s["legal_p_uses_title"], use_table + body_markup(s["legal_p_uses_body_1"] + "\n\n" + s["legal_p_uses_body_2"], registry)),
+        page_section("p-sharing", s["legal_p_sharing_title"], body_markup(s["legal_p_sharing_body_1"], registry) + '<div class="services">' + "".join(service_cards) + '</div>' + body_markup(s["legal_p_sharing_body_2"], registry)),
+        page_section("p-storage", s["legal_p_storage_title"], storage_table + body_markup(s["legal_p_storage_body_1"], registry)),
     ]
     for item, key in (("errors", "errors"), ("basis", "basis"), ("transfers", "transfers"), ("rights", "rights"), ("minors", "minors"), ("changes", "changes")):
         paragraphs = [s[f"legal_p_{item}_body_{i}"] for i in range(1, 4) if f"legal_p_{item}_body_{i}" in s]
         extra = rights if item == "rights" else ""
-        privacy_blocks.append(page_section(f"p-{item}", s[f"legal_p_{item}_title"], extra + body_markup("\n\n".join(paragraphs))))
+        privacy_blocks.append(page_section(f"p-{item}", s[f"legal_p_{item}_title"], extra + body_markup("\n\n".join(paragraphs), registry)))
 
     notice_blocks = []
     for item, body_count in (("owner", 1), ("about", 1), ("source", 2), ("warranty", 2), ("maps", 2), ("brands", 2), ("ip", 1), ("liability", 1), ("law", 1)):
         paragraphs = "\n\n".join(s[f"legal_n_{item}_body_{i}"] for i in range(1, body_count + 1))
-        notice_blocks.append(page_section(f"n-{item}", s[f"legal_n_{item}_title"], body_markup(paragraphs)))
+        notice_blocks.append(page_section(f"n-{item}", s[f"legal_n_{item}_title"], body_markup(paragraphs, registry)))
 
-    components = [
-        ("Jetpack Compose BOM · 2026.02.01 / Material 3 · 1.5.0-alpha25", "compose_use", "Apache 2.0"),
-        ("AndroidX (Activity, AppCompat, Core, Lifecycle, DataStore, SplashScreen)", "androidx_use", "Apache 2.0"),
-        ("Material Icons", "icons_use", "Apache 2.0"),
-        ("Kotlin · 2.4.10 / kotlinx.coroutines", "kotlin_use", "Apache 2.0"),
-        ("Retrofit · 3.0.0 / OkHttp / Okio", "network_use", "Apache 2.0"),
-        ("Gson", "gson_use", "Apache 2.0"),
-        ("Accompanist Permissions · 0.37.3", "accompanist_use", "Apache 2.0"),
-        ("Material Kolor · 5.0.0 / Material Color Utilities", "color_use", "MIT · Apache 2.0"),
-        ("Google Sans Flex", "font_use", "SIL OFL 1.1"),
-        ("flag-icons", "flag_icons_use", "MIT"),
-        (s["legal_comp_commons_flags_name"], "commons_flags_use", s["legal_license_public_domain"]),
-        ("Google Maps SDK · 19.0.0", "maps_use", s["legal_license_google_terms"]),
-        (s["legal_comp_osm_name"], "osm_use", "ODbL 1.0"),
+    comp_rows = [
+        [
+            s[item["name_key"]] if item.get("name_key") else item["name"],
+            s[item["use_key"]],
+            s[item["license_key"]] if item.get("license_key") else item["license"],
+        ]
+        for item in registry["components"]
     ]
-    comp_rows = [[name, s[f"legal_comp_{use}"], license_name] for name, use, license_name in components]
     component_headers = [s[f"legal_comp_col_{key}"] for key in ("name", "use", "license")]
     comp_table = table(component_headers, comp_rows, component_headers)
     license_disclosures = []
-    license_labels = {
-        "apache-license-2.0.txt": "Apache License 2.0",
-        "flag-icons-mit.txt": "MIT License · flag-icons",
-        "google-sans-flex.txt": "SIL Open Font License 1.1 · Google Sans Flex",
-        "material-kolor-mit.txt": "MIT License · Material Kolor",
-    }
-    for file in ASSETS:
-        license_disclosures.append(f'<details class="license-disclosure"><summary>{h(license_labels[file])}</summary><pre class="license-text" lang="en" dir="ltr">{html.escape(licenses[file], quote=False)}</pre></details>')
+    for component in registry["components"]:
+        site_file = component.get("site_file")
+        if not site_file:
+            continue
+        file = Path(site_file).name
+        license_disclosures.append(f'<details class="license-disclosure"><summary>{h(component["site_license_label"])}</summary><pre class="license-text" lang="en" dir="ltr">{html.escape(licenses[file], quote=False)}</pre></details>')
     license_content = page_section("l-components", s["legal_l_components_title"], comp_table) + page_section("l-texts", s["legal_l_texts_title"], "".join(license_disclosures))
 
     languages = []
     for target_locale in content["language_order"]:
         target = content["locales"][target_locale]
         current = ' aria-current="true"' if locale == target_locale else ""
-        languages.append(f'<li><a class="lang-item" href="{page_name("privacy", target_locale)}#summary" lang="{h(target["tag"])}" hreflang="{h(target["tag"])}"{current}><span class="li-code">{h(target_locale.upper())}</span><span class="li-name">{h(target["language_name"])}</span></a></li>')
+        languages.append(f'<li><a class="lang-item" href="{page_name("privacy", target_locale)}#summary" lang="{h(target["tag"])}" hreflang="{h(target["tag"])}" data-locale="{h(target["tag"])}"{current}><span class="li-code">{h(target_locale.split("-", 1)[0].upper())}</span><span class="li-name">{h(target["language_name"])}</span></a></li>')
     nav = [("summary", "legal_nav_summary", "summary"), ("privacy", "legal_nav_privacy", "privacy"), ("legal", "legal_nav_notice", "legal"), ("open-source", "legal_nav_licenses", "licenses")]
     nav_links = "".join(f'<a class="chip" href="#{anchor}" data-nav-target="{anchor}">{h(s[key])}</a>' for anchor, key, _ in nav)
 
@@ -187,18 +182,19 @@ def render_document(content: dict[str, Any], locale: str, document_id: str, lice
 <section id="privacy" data-sec="privacy" class="panel" aria-labelledby="privacy-title"><header class="panel-head"><h2 id="privacy-title">{h(s["legal_privacy_title"])}</h2><p class="lead">{h(s["legal_privacy_lead"])}</p></header>{"".join(privacy_blocks)}</section>
 <section id="legal" data-sec="legal" class="panel" aria-labelledby="legal-title"><header class="panel-head"><h2 id="legal-title">{h(s["legal_notice_title"])}</h2><p class="lead">{h(s["legal_notice_lead"])}</p></header>{"".join(notice_blocks)}</section>
 <section id="open-source" data-sec="open-source" class="panel" aria-labelledby="open-source-title"><header class="panel-head"><h2 id="open-source-title">{h(s["legal_licenses_title"])}</h2><p class="lead">{h(s["legal_licenses_lead"])}</p></header>{license_content}</section>
-<footer class="foot"><a class="foot-brand" href="index.html"><img src="gasel-logo.png" width="48" height="48" alt=""><strong>Gasel</strong></a><dl><div><dt>{h(s["legal_footer_contact"])}</dt><dd><a href="mailto:gasel@yvel.uk" dir="ltr">gasel@yvel.uk</a></dd></div><div><dt>{h(s["legal_footer_identifier"])}</dt><dd>uk.yvel.gasel</dd></div><div><dt>{h(s["legal_footer_code"])}</dt><dd><a href="https://github.com/ismael-ares/gasel">github.com/ismael-ares/gasel</a></dd></div><div><dt>{h(s["legal_footer_updated"])}</dt><dd>{h(s["legal_updated"])}</dd></div></dl></footer></main></body></html>'''
+<footer class="foot"><a class="foot-brand" href="index.html"><img src="gasel-logo.png" width="48" height="48" alt=""><strong>Gasel</strong></a><dl><div><dt>{h(s["legal_footer_contact"])}</dt><dd><a href="mailto:{h(registry["contact_email"])}" dir="ltr">{h(registry["contact_email"])}</a></dd></div><div><dt>{h(s["legal_footer_identifier"])}</dt><dd>{h(registry["app_id"])}</dd></div><div><dt>{h(s["legal_footer_code"])}</dt><dd><a href="{h(next(link["url"] for link in registry["links"] if link["id"] == "source_code"))}">{h(next(link["url"] for link in registry["links"] if link["id"] == "source_code").removeprefix("https://"))}</a></dd></div><div><dt>{h(s["legal_footer_updated"])}</dt><dd>{h(s["legal_updated"])}</dd></div></dl></footer></main></body></html>'''
 
 
 def render_index(content: dict[str, Any]) -> str:
-    return f'''<!doctype html><html lang="es-ES"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=privacy.html#summary"><title>Gasel</title><link rel="canonical" href="{SITE_URL}/privacy.html">{language_alternates(content)}<link rel="stylesheet" href="styles.css"></head><body><main class="document-shell"><h1>Gasel</h1><p><a href="privacy.html#summary">{h(content["locales"]["es"]["strings"]["legal_open_web"])}</a></p></main></body></html>'''
+    return f'''<!doctype html><html lang="es-ES"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=privacy.html#summary"><title>Gasel</title><link rel="canonical" href="{site_url(content)}/privacy.html">{language_alternates(content)}<link rel="stylesheet" href="styles.css"></head><body><main class="document-shell"><h1>Gasel</h1><p><a href="privacy.html#summary">{h(content["locales"]["es"]["strings"]["legal_open_web"])}</a></p></main></body></html>'''
 
 
 def expected_files(content: dict[str, Any], license_paths: dict[str, Path] | Path | None = None) -> dict[str, str]:
+    files = asset_files(content)
     if isinstance(license_paths, Path):
-        paths = {file: license_paths.parent / file for file in ASSETS}
+        paths = {file: license_paths.parent / file for file in files}
     elif license_paths is None:
-        paths = {file: ROOT / "licenses" / file for file in ASSETS}
+        paths = {file: ROOT / "licenses" / file for file in files}
     else:
         paths = license_paths
     licenses = {name: path.read_text(encoding="utf-8") for name, path in paths.items()}

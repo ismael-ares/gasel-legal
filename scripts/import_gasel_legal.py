@@ -62,12 +62,6 @@ LANGUAGES = (
     ("ur", "ur-PK", "values-ur-rPK"),
     ("ca-valencia", "ca-ES-valencia", "values-b+ca+ES+valencia"),
 )
-LEGAL_ASSETS = {
-    "apache-license-2.0.txt": "apache_license_2_0.txt",
-    "flag-icons-mit.txt": "flag_icons_mit_license.txt",
-    "google-sans-flex.txt": "google_sans_flex_license.txt",
-    "material-kolor-mit.txt": "material_kolor_mit_license.txt",
-}
 LANGUAGE_NAME_KEYS = {
     "sq": "language_albanian",
     "ar": "language_arabic",
@@ -143,12 +137,26 @@ def required(values: dict[str, str], key: str, language: str) -> str:
 
 
 def build_content(gasel_root: Path, fixture_locales: set[str] | None = None) -> tuple[dict[str, object], dict[str, bytes]]:
+    registry_path = gasel_root / "app/src/main/assets/legal/registry.json"
+    try:
+        registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        raise ValueError(f"Registro legal inválido: {error}") from error
     assets: dict[str, bytes] = {}
     asset_hashes: dict[str, str] = {}
-    for site_name, android_name in LEGAL_ASSETS.items():
-        source = gasel_root / "app/src/main/res/raw" / android_name
+    for component in registry.get("components", []):
+        site_path = component.get("site_file")
+        raw_path = component.get("raw_license")
+        if not site_path:
+            if raw_path:
+                raise ValueError(f"Componente {component.get('id')} tiene raw_license sin site_file")
+            continue
+        if not raw_path:
+            raise ValueError(f"Componente {component.get('id')} tiene site_file sin raw_license")
+        site_name = Path(site_path).name
+        source = gasel_root / raw_path
         if not source.is_file():
-            raise ValueError(f"Falta app/src/main/res/raw/{android_name}")
+            raise ValueError(f"Falta {raw_path}")
         data = source.read_bytes()
         assets[site_name] = data
         asset_hashes[site_name] = hashlib.sha256(data).hexdigest()
@@ -188,6 +196,7 @@ def build_content(gasel_root: Path, fixture_locales: set[str] | None = None) -> 
         "schema_version": 1,
         "language_order": [entry[0] for entry in LANGUAGES if selected is None or entry[0] in selected],
         "document_order": ["privacy", "legal", "licenses"],
+        "registry": registry,
         "legal_keys": list(required_legal_keys),
         "source_sha256": {
             "language_catalogs": source_hashes,

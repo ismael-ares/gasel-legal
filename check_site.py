@@ -107,7 +107,7 @@ def validate(root: Path = ROOT) -> list[str]:
     errors: list[str] = []
     try:
         content = json.loads((root / "content.json").read_text(encoding="utf-8"))
-        generated = render_site.expected_files(content, {name: root / "licenses" / name for name in render_site.ASSETS})
+        generated = render_site.expected_files(content, {name: root / "licenses" / name for name in render_site.asset_files(content)})
     except (OSError, ValueError, KeyError) as error:
         return [f"cannot load generated content: {error}"]
     assets = content.get("source_sha256", {}).get("legal_assets", {})
@@ -155,7 +155,7 @@ def validate(root: Path = ROOT) -> list[str]:
                 elif any(attrs.get("hreflang") != content["locales"][target]["tag"] or href != f'{render_site.page_name("privacy", target)}#summary' for target, (href, attrs) in zip(content["language_order"], language_links)):
                     errors.append(f"{filename} language selector has an incorrect locale link")
                 if len(page.logos) != 1 or page.logos[0].get("alt") != "" or page.logos[0].get("width") != "48": errors.append(f"{filename} needs one decorative high-resolution logo beside the Gasel wordmark")
-                expected_license = "".join((root / "licenses" / asset).read_text(encoding="utf-8") for asset in render_site.ASSETS)
+                expected_license = "".join((root / "licenses" / asset).read_text(encoding="utf-8") for asset in render_site.asset_files(content))
                 if "".join(page.license_text) != expected_license: errors.append(f"{filename} does not contain every complete source license")
                 if page.license_dir != "ltr": errors.append(f"{filename} must keep source licenses left-to-right")
             else:
