@@ -1,51 +1,358 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <title>隐私政策 | Gasel</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">跳转到正文</a>
-  <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Gasel">
-      <img class="brand-logo" src="gasel-logo.png" alt="" width="48" height="48">
-      <span>Gasel</span>
-    </a>
-    <nav class="document-nav" aria-label="法律文件">
-      <a href="privacy-zh.html" aria-current="page">隐私政策</a> <a href="legal-zh.html">法律声明</a> <a href="licenses-zh.html">开源通知</a>
-    </nav>
-    <nav class="language-nav" aria-label="文档语言">
-      <a href="privacy-sq.html" lang="sq-AL" hreflang="sq-AL">Shqip</a> <a href="privacy-ar.html" lang="ar-MA" hreflang="ar-MA">العربية</a> <a href="privacy-oc-aranes.html" lang="oc-ES-aranes" hreflang="oc-ES-aranes">Aranés</a> <a href="privacy-ast.html" lang="ast-ES" hreflang="ast-ES">Asturianu</a> <a href="privacy-eu.html" lang="eu-ES" hreflang="eu-ES">Euskara</a> <a href="privacy-bs.html" lang="bs-BA" hreflang="bs-BA">Bosanski</a> <a href="privacy-bg.html" lang="bg-BG" hreflang="bg-BG">Български</a> <a href="privacy.html" lang="es-ES" hreflang="es-ES">Castellano</a> <a href="privacy-ca.html" lang="ca-ES" hreflang="ca-ES">Català</a> <a href="privacy-zh.html" lang="zh-CN" hreflang="zh-CN" aria-current="page">简体中文</a> <a href="privacy-hr.html" lang="hr-HR" hreflang="hr-HR">Hrvatski</a> <a href="privacy-cs.html" lang="cs-CZ" hreflang="cs-CZ">Čeština</a> <a href="privacy-da.html" lang="da-DK" hreflang="da-DK">Dansk</a> <a href="privacy-nl.html" lang="nl-NL" hreflang="nl-NL">Nederlands</a> <a href="privacy-en.html" lang="en-GB" hreflang="en-GB">English (UK)</a> <a href="privacy-en-us.html" lang="en-US" hreflang="en-US">English (US)</a> <a href="privacy-et.html" lang="et-EE" hreflang="et-EE">eesti</a> <a href="privacy-fi.html" lang="fi-FI" hreflang="fi-FI">suomi</a> <a href="privacy-fr.html" lang="fr-FR" hreflang="fr-FR">Français</a> <a href="privacy-gl.html" lang="gl-ES" hreflang="gl-ES">Galego</a> <a href="privacy-de.html" lang="de-DE" hreflang="de-DE">Deutsch</a> <a href="privacy-hi.html" lang="hi-IN" hreflang="hi-IN">हिन्दी</a> <a href="privacy-hu.html" lang="hu-HU" hreflang="hu-HU">Magyar</a> <a href="privacy-is.html" lang="is-IS" hreflang="is-IS">Íslenska</a> <a href="privacy-it.html" lang="it-IT" hreflang="it-IT">Italiano</a> <a href="privacy-ja.html" lang="ja-JP" hreflang="ja-JP">日本語</a> <a href="privacy-ko.html" lang="ko-KR" hreflang="ko-KR">한국어</a> <a href="privacy-lv.html" lang="lv-LV" hreflang="lv-LV">latviešu</a> <a href="privacy-lt.html" lang="lt-LT" hreflang="lt-LT">lietuvių</a> <a href="privacy-mk.html" lang="mk-MK" hreflang="mk-MK">македонски</a> <a href="privacy-cnr.html" lang="cnr-Latn-ME" hreflang="cnr-Latn-ME">crnogorski (latinica)</a> <a href="privacy-nb.html" lang="nb-NO" hreflang="nb-NO">Norsk bokmål</a> <a href="privacy-pl.html" lang="pl-PL" hreflang="pl-PL">Polski</a> <a href="privacy-pt-br.html" lang="pt-BR" hreflang="pt-BR">Português (Brasil)</a> <a href="privacy-pt.html" lang="pt-PT" hreflang="pt-PT">Português (Portugal)</a> <a href="privacy-ro.html" lang="ro-RO" hreflang="ro-RO">Română</a> <a href="privacy-ru.html" lang="ru-RU" hreflang="ru-RU">Русский</a> <a href="privacy-sr-cyrl.html" lang="sr-Cyrl-RS" hreflang="sr-Cyrl-RS">српски (ћирилица)</a> <a href="privacy-sr-latn.html" lang="sr-Latn-RS" hreflang="sr-Latn-RS">srpski (latinica)</a> <a href="privacy-sk.html" lang="sk-SK" hreflang="sk-SK">Slovenčina</a> <a href="privacy-sl.html" lang="sl-SI" hreflang="sl-SI">Slovenščina</a> <a href="privacy-sv.html" lang="sv-SE" hreflang="sv-SE">Svenska</a> <a href="privacy-rif.html" lang="rif-Latn-MA" hreflang="rif-Latn-MA">Tarifit (Tamaziɣt n Arrif)</a> <a href="privacy-tr.html" lang="tr-TR" hreflang="tr-TR">Türkçe</a> <a href="privacy-uk.html" lang="uk-UA" hreflang="uk-UA">Українська</a> <a href="privacy-ur.html" lang="ur-PK" hreflang="ur-PK">اردو</a> <a href="privacy-ca-valencia.html" lang="ca-ES-valencia" hreflang="ca-ES-valencia">Valencià</a>
-    </nav>
-  </header>
-  <main id="main" class="document-shell">
-    <article class="legal-document">
-      <header class="document-intro">
-        <h1>隐私政策</h1>
-        <p class="document-summary">了解 Gasel 如何处理数据、位置和外部服务。</p>
-        <p class="updated">最后更新日期：2026 年 11 月 11 日</p>
-      </header>
-      <section class="legal-section" aria-labelledby="privacy-controller-title">
-  <h2 id="privacy-controller-title">数据控制者和联系方式</h2>
-  <p>Ismael Ares 是 Gasel 的数据控制者。如有隐私方面的疑问或需要支持，请联系：<a href="mailto:gasel@yvel.uk" dir="ltr">gasel@yvel.uk</a>。</p>
-</section> <section class="legal-section" aria-labelledby="privacy-data-title">
-  <h2 id="privacy-data-title">数据及其用途</h2>
-  <p>本应用不会创建账户，也不会索取姓名、电子邮件地址、电话号码、支付信息或广告标识符。是否提供大致或精确位置由您自行选择；仅在应用打开期间，该位置用于显示附近的加油站、对结果排序、定位地图中心和计算距离。您无需授予位置权限，也可以手动搜索区域。</p>
-</section> <section class="legal-section" aria-labelledby="privacy-services-title">
-  <h2 id="privacy-services-title">外部服务</h2>
-  <p>本应用会下载西班牙政府发布的公开油价数据。为计算道路距离，它会将您的位置或所搜索区域的坐标以及附近加油站的坐标发送至公共 OSRM 服务器（router.project-osrm.org）。该服务器属于第三方服务，发送的数据不含个人标识符。地点搜索和区域名称使用 Android 地理编码功能，该功能可能会将搜索文本或坐标发送给系统提供商（通常是 Google）。地图使用 Google Maps SDK，Google 可能会按照其隐私政策处理请求和设备元数据。</p>
-</section> <section class="legal-section" aria-labelledby="privacy-security-title">
-  <h2 id="privacy-security-title">安全与数据共享</h2>
-  <p>通信使用 HTTPS。我们不出售数据，也不包含广告或自有分析。如果应用意外关闭，它会在设备上保存一份技术报告，该报告绝不会自动发送：只有在您决定发送、分享或复制时，它才会离开设备。分享加油站或打开导航应用均由您主动发起。</p>
-</section> <section class="legal-section" aria-labelledby="privacy-retention-title">
-  <h2 id="privacy-retention-title">数据保留与变更</h2>
-  <p>设置、折扣计划、自定义名称和图标以及下载的数据会保存在您的设备上，直至您将其删除。如果开启了 Android 备份，系统可能会将设置纳入备份；已保存的区域、数据缓存和错误报告则不在备份范围内。当应用的数据处理方式发生变化时，本政策将随之更新。</p>
-</section>
-    </article>
-  </main>
-</body>
-</html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="color-scheme" content="light dark"><title>隐私与法律声明 | Gasel</title><link rel="icon" href="favicon.png" type="image/png"><link rel="stylesheet" href="styles.css"><script defer src="site.js"></script></head>
+<body class="site"><a class="skip-link" href="#main">摘要</a>
+<header class="bar"><div class="bar-in gut"><a class="brand" href="index.html" aria-label="Gasel"><img class="brand-logo" src="gasel-logo.png" alt="" width="48" height="48"><span class="brand-name">Gasel</span></a><nav class="document-nav" aria-label="页面板块"><a class="chip" href="#summary" data-nav-target="summary">摘要</a><a class="chip" href="#privacy" data-nav-target="privacy">隐私</a><a class="chip" href="#legal" data-nav-target="legal">法律声明</a><a class="chip" href="#open-source" data-nav-target="open-source">自由软件</a></nav>
+<details class="lang"><summary class="lang-btn"><span class="sr-only">语言</span><span class="lang-code">ZH</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="lang-panel"><label class="sr-only" for="language-search">筛选语言…</label><input id="language-search" class="lang-q" type="search" placeholder="筛选语言…" autocomplete="off"><ul class="lang-list"><li><a class="lang-item" href="privacy-sq.html#summary" lang="sq-AL" hreflang="sq-AL"><span class="li-code">SQ</span><span class="li-name">Shqip</span></a></li><li><a class="lang-item" href="privacy-ar.html#summary" lang="ar-MA" hreflang="ar-MA"><span class="li-code">AR</span><span class="li-name">العربية</span></a></li><li><a class="lang-item" href="privacy-oc-aranes.html#summary" lang="oc-ES-aranes" hreflang="oc-ES-aranes"><span class="li-code">OC-ARANES</span><span class="li-name">Aranés</span></a></li><li><a class="lang-item" href="privacy-ast.html#summary" lang="ast-ES" hreflang="ast-ES"><span class="li-code">AST</span><span class="li-name">Asturianu</span></a></li><li><a class="lang-item" href="privacy-eu.html#summary" lang="eu-ES" hreflang="eu-ES"><span class="li-code">EU</span><span class="li-name">Euskara</span></a></li><li><a class="lang-item" href="privacy-bs.html#summary" lang="bs-BA" hreflang="bs-BA"><span class="li-code">BS</span><span class="li-name">Bosanski</span></a></li><li><a class="lang-item" href="privacy-bg.html#summary" lang="bg-BG" hreflang="bg-BG"><span class="li-code">BG</span><span class="li-name">Български</span></a></li><li><a class="lang-item" href="privacy.html#summary" lang="es-ES" hreflang="es-ES"><span class="li-code">ES</span><span class="li-name">Castellano</span></a></li><li><a class="lang-item" href="privacy-ca.html#summary" lang="ca-ES" hreflang="ca-ES"><span class="li-code">CA</span><span class="li-name">Català</span></a></li><li><a class="lang-item" href="privacy-zh.html#summary" lang="zh-CN" hreflang="zh-CN" aria-current="true"><span class="li-code">ZH</span><span class="li-name">简体中文</span></a></li><li><a class="lang-item" href="privacy-hr.html#summary" lang="hr-HR" hreflang="hr-HR"><span class="li-code">HR</span><span class="li-name">Hrvatski</span></a></li><li><a class="lang-item" href="privacy-cs.html#summary" lang="cs-CZ" hreflang="cs-CZ"><span class="li-code">CS</span><span class="li-name">Čeština</span></a></li><li><a class="lang-item" href="privacy-da.html#summary" lang="da-DK" hreflang="da-DK"><span class="li-code">DA</span><span class="li-name">Dansk</span></a></li><li><a class="lang-item" href="privacy-nl.html#summary" lang="nl-NL" hreflang="nl-NL"><span class="li-code">NL</span><span class="li-name">Nederlands</span></a></li><li><a class="lang-item" href="privacy-en.html#summary" lang="en-GB" hreflang="en-GB"><span class="li-code">EN</span><span class="li-name">English (UK)</span></a></li><li><a class="lang-item" href="privacy-en-us.html#summary" lang="en-US" hreflang="en-US"><span class="li-code">EN-US</span><span class="li-name">English (US)</span></a></li><li><a class="lang-item" href="privacy-et.html#summary" lang="et-EE" hreflang="et-EE"><span class="li-code">ET</span><span class="li-name">eesti</span></a></li><li><a class="lang-item" href="privacy-fi.html#summary" lang="fi-FI" hreflang="fi-FI"><span class="li-code">FI</span><span class="li-name">suomi</span></a></li><li><a class="lang-item" href="privacy-fr.html#summary" lang="fr-FR" hreflang="fr-FR"><span class="li-code">FR</span><span class="li-name">Français</span></a></li><li><a class="lang-item" href="privacy-gl.html#summary" lang="gl-ES" hreflang="gl-ES"><span class="li-code">GL</span><span class="li-name">Galego</span></a></li><li><a class="lang-item" href="privacy-de.html#summary" lang="de-DE" hreflang="de-DE"><span class="li-code">DE</span><span class="li-name">Deutsch</span></a></li><li><a class="lang-item" href="privacy-hi.html#summary" lang="hi-IN" hreflang="hi-IN"><span class="li-code">HI</span><span class="li-name">हिन्दी</span></a></li><li><a class="lang-item" href="privacy-hu.html#summary" lang="hu-HU" hreflang="hu-HU"><span class="li-code">HU</span><span class="li-name">Magyar</span></a></li><li><a class="lang-item" href="privacy-is.html#summary" lang="is-IS" hreflang="is-IS"><span class="li-code">IS</span><span class="li-name">Íslenska</span></a></li><li><a class="lang-item" href="privacy-it.html#summary" lang="it-IT" hreflang="it-IT"><span class="li-code">IT</span><span class="li-name">Italiano</span></a></li><li><a class="lang-item" href="privacy-ja.html#summary" lang="ja-JP" hreflang="ja-JP"><span class="li-code">JA</span><span class="li-name">日本語</span></a></li><li><a class="lang-item" href="privacy-ko.html#summary" lang="ko-KR" hreflang="ko-KR"><span class="li-code">KO</span><span class="li-name">한국어</span></a></li><li><a class="lang-item" href="privacy-lv.html#summary" lang="lv-LV" hreflang="lv-LV"><span class="li-code">LV</span><span class="li-name">latviešu</span></a></li><li><a class="lang-item" href="privacy-lt.html#summary" lang="lt-LT" hreflang="lt-LT"><span class="li-code">LT</span><span class="li-name">lietuvių</span></a></li><li><a class="lang-item" href="privacy-mk.html#summary" lang="mk-MK" hreflang="mk-MK"><span class="li-code">MK</span><span class="li-name">македонски</span></a></li><li><a class="lang-item" href="privacy-cnr.html#summary" lang="cnr-Latn-ME" hreflang="cnr-Latn-ME"><span class="li-code">CNR</span><span class="li-name">crnogorski (latinica)</span></a></li><li><a class="lang-item" href="privacy-nb.html#summary" lang="nb-NO" hreflang="nb-NO"><span class="li-code">NB</span><span class="li-name">Norsk bokmål</span></a></li><li><a class="lang-item" href="privacy-pl.html#summary" lang="pl-PL" hreflang="pl-PL"><span class="li-code">PL</span><span class="li-name">Polski</span></a></li><li><a class="lang-item" href="privacy-pt-br.html#summary" lang="pt-BR" hreflang="pt-BR"><span class="li-code">PT-BR</span><span class="li-name">Português (Brasil)</span></a></li><li><a class="lang-item" href="privacy-pt.html#summary" lang="pt-PT" hreflang="pt-PT"><span class="li-code">PT</span><span class="li-name">Português (Portugal)</span></a></li><li><a class="lang-item" href="privacy-ro.html#summary" lang="ro-RO" hreflang="ro-RO"><span class="li-code">RO</span><span class="li-name">Română</span></a></li><li><a class="lang-item" href="privacy-ru.html#summary" lang="ru-RU" hreflang="ru-RU"><span class="li-code">RU</span><span class="li-name">Русский</span></a></li><li><a class="lang-item" href="privacy-sr-cyrl.html#summary" lang="sr-Cyrl-RS" hreflang="sr-Cyrl-RS"><span class="li-code">SR-CYRL</span><span class="li-name">српски (ћирилица)</span></a></li><li><a class="lang-item" href="privacy-sr-latn.html#summary" lang="sr-Latn-RS" hreflang="sr-Latn-RS"><span class="li-code">SR-LATN</span><span class="li-name">srpski (latinica)</span></a></li><li><a class="lang-item" href="privacy-sk.html#summary" lang="sk-SK" hreflang="sk-SK"><span class="li-code">SK</span><span class="li-name">Slovenčina</span></a></li><li><a class="lang-item" href="privacy-sl.html#summary" lang="sl-SI" hreflang="sl-SI"><span class="li-code">SL</span><span class="li-name">Slovenščina</span></a></li><li><a class="lang-item" href="privacy-sv.html#summary" lang="sv-SE" hreflang="sv-SE"><span class="li-code">SV</span><span class="li-name">Svenska</span></a></li><li><a class="lang-item" href="privacy-rif.html#summary" lang="rif-Latn-MA" hreflang="rif-Latn-MA"><span class="li-code">RIF</span><span class="li-name">Tarifit (Tamaziɣt n Arrif)</span></a></li><li><a class="lang-item" href="privacy-tr.html#summary" lang="tr-TR" hreflang="tr-TR"><span class="li-code">TR</span><span class="li-name">Türkçe</span></a></li><li><a class="lang-item" href="privacy-uk.html#summary" lang="uk-UA" hreflang="uk-UA"><span class="li-code">UK</span><span class="li-name">Українська</span></a></li><li><a class="lang-item" href="privacy-ur.html#summary" lang="ur-PK" hreflang="ur-PK"><span class="li-code">UR</span><span class="li-name">اردو</span></a></li><li><a class="lang-item" href="privacy-ca-valencia.html#summary" lang="ca-ES-valencia" hreflang="ca-ES-valencia"><span class="li-code">CA-VALENCIA</span><span class="li-name">Valencià</span></a></li></ul><p class="lang-empty" hidden>没有匹配的语言。</p></div></details>
+<button class="theme-btn" id="theme-btn" type="button" data-dark-label="切换为深色主题" data-light-label="切换为浅色主题" aria-label="切换为深色主题" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><mask id="moon-cut"><rect width="24" height="24" fill="#fff"/><circle class="cut" cx="24" cy="2" r="7" fill="#000"/></mask><g class="rays"><path d="M12 1.8v2.4M12 19.8v2.4M1.8 12h2.4M19.8 12h2.4M4.8 4.8l1.7 1.7M17.5 17.5l1.7 1.7M4.8 19.2l1.7-1.7M17.5 6.5l1.7-1.7"/></g><circle class="core" cx="12" cy="12" r="5" mask="url(#moon-cut)"/></svg></button></div></header>
+<main id="main" class="wrap gut"><header id="summary" data-sec="summary" class="hero" tabindex="-1" aria-labelledby="hero-title"><div class="hero-copy"><p class="eyebrow">法律信息 · Gasel</p><h1 id="hero-title">隐私与法律声明</h1><p class="promise">Gasel 不设账户、不投放广告，也不进行数据分析。这里会清楚说明它如何处理你的数据，以及你可以在什么条件下使用它。</p><p class="updated">最后更新：2026年11月21日</p></div><div class="hero-mark"><svg class="hero-burst" viewBox="0 0 100 100" aria-hidden="true"><path d="M50.00 0.00 L52.59 0.55 L55.05 1.99 L57.31 3.85 L59.46 5.52 L61.65 6.53 L64.05 6.75 L66.75 6.38 L69.63 5.90 L72.48 5.88 L75.00 6.70 L76.97 8.47 L78.37 10.95 L79.41 13.69 L80.43 16.20 L81.82 18.18 L83.80 19.57 L86.31 20.59 L89.05 21.63 L91.53 23.03 L93.30 25.00 L94.12 27.52 L94.10 30.37 L93.62 33.25 L93.25 35.95 L93.47 38.35 L94.48 40.54 L96.15 42.69 L98.01 44.95 L99.45 47.41 L100.00 50.00 L99.45 52.59 L98.01 55.05 L96.15 57.31 L94.48 59.46 L93.47 61.65 L93.25 64.05 L93.62 66.75 L94.10 69.63 L94.12 72.48 L93.30 75.00 L91.53 76.97 L89.05 78.37 L86.31 79.41 L83.80 80.43 L81.82 81.82 L80.43 83.80 L79.41 86.31 L78.37 89.05 L76.97 91.53 L75.00 93.30 L72.48 94.12 L69.63 94.10 L66.75 93.62 L64.05 93.25 L61.65 93.47 L59.46 94.48 L57.31 96.15 L55.05 98.01 L52.59 99.45 L50.00 100.00 L47.41 99.45 L44.95 98.01 L42.69 96.15 L40.54 94.48 L38.35 93.47 L35.95 93.25 L33.25 93.62 L30.37 94.10 L27.52 94.12 L25.00 93.30 L23.03 91.53 L21.63 89.05 L20.59 86.31 L19.57 83.80 L18.18 81.82 L16.20 80.43 L13.69 79.41 L10.95 78.37 L8.47 76.97 L6.70 75.00 L5.88 72.48 L5.90 69.63 L6.38 66.75 L6.75 64.05 L6.53 61.65 L5.52 59.46 L3.85 57.31 L1.99 55.05 L0.55 52.59 L0.00 50.00 L0.55 47.41 L1.99 44.95 L3.85 42.69 L5.52 40.54 L6.53 38.35 L6.75 35.95 L6.38 33.25 L5.90 30.37 L5.88 27.52 L6.70 25.00 L8.47 23.03 L10.95 21.63 L13.69 20.59 L16.20 19.57 L18.18 18.18 L19.57 16.20 L20.59 13.69 L21.63 10.95 L23.03 8.47 L25.00 6.70 L27.52 5.88 L30.37 5.90 L33.25 6.38 L35.95 6.75 L38.35 6.53 L40.54 5.52 L42.69 3.85 L44.95 1.99 L47.41 0.55Z"/></svg><img src="gasel-logo.png" alt="" width="104" height="104"></div><div class="facts-wrap"><h2 class="sr-only">概览</h2><ul class="facts"><li class="fact"><h3>无需账户</h3><p>无需注册。Gasel 不会索取你的姓名、邮箱或电话号码。</p></li><li class="fact"><h3>没有广告或数据分析</h3><p>没有广告，也没有衡量你行为的工具。</p></li><li class="fact"><h3>位置权限可选</h3><p>仅在应用打开时使用。不开启位置权限时，你可以手动选择区域。</p></li><li class="fact"><h3>数据保存在你的手机上</h3><p>Gasel 没有用于存储你个人数据的服务器。</p></li><li class="fact"><h3>官方价格</h3><p>数据来自生态转型部，仅供参考。</p></li><li class="fact"><h3>离开手机的数据</h3><p>用于计算距离的坐标，以及地图的技术数据。</p></li></ul></div></header>
+<section id="privacy" data-sec="privacy" class="panel" aria-labelledby="privacy-title"><header class="panel-head"><h2 id="privacy-title">隐私</h2><p class="lead">Gasel 不会向你索取个人数据。少量离开手机的数据仅用于展示加油站和计算距离，绝不会用于出售或广告。</p></header><section class="row" aria-labelledby="p-controller-title"><h3 id="p-controller-title">数据控制者</h3><div class="row-body"><p>Gasel 由 Ismael Ares 以个人身份开发，他是数据控制者。如有疑问，请发送邮件至 <a href="mailto:gasel@yvel.uk" dir="ltr">gasel@yvel.uk</a>。</p></div></section><section class="row" aria-labelledby="p-uses-title"><h3 id="p-uses-title">使用哪些数据及其用途</h3><div class="row-body"><div class="tbl"><table><thead><tr><th scope="col">数据</th><th scope="col">用途</th><th scope="col">是否离开手机？</th></tr></thead><tbody><tr><td data-l="数据">你的大致位置或精确位置</td><td data-l="用途">展示附近加油站、按距离排序、将地图居中，以及计算驾车距离</td><td data-l="是否离开手机？">是，以坐标形式</td></tr><tr><td data-l="数据">你搜索或选择的区域</td><td data-l="用途">当你不想使用当前位置时，用于相同目的</td><td data-l="是否离开手机？">是，以文字或坐标形式</td></tr><tr><td data-l="数据">设置、常用燃油、折扣方案，以及你为加油站设置的名称</td><td data-l="用途">让应用按你的偏好运行</td><td data-l="是否离开手机？">仅保存到你自己的 Google 备份</td></tr><tr><td data-l="数据">错误报告</td><td data-l="用途">修复问题</td><td data-l="是否离开手机？">仅在你主动发送时</td></tr></tbody></table></div><p>位置权限为可选权限，你也可以只授予大致位置权限；应用仍可正常运行。Gasel 只会在应用打开时使用你的位置，绝不会在后台使用。</p>
+<p>Gasel 不使用账户或广告标识符，也不会对你作出自动化决定或建立个人画像。</p></div></section><section class="row" aria-labelledby="p-sharing-title"><h3 id="p-sharing-title">数据共享对象</h3><div class="row-body"><p>Gasel 没有接收你数据的自有服务器，也不会出售或转让你的数据。应用运行依赖以下服务：</p><div class="services"><article class="service"><span class="service-tag">价格</span><h4><a href="https://geoportalgasolineras.es/geoportal-instalaciones/Inicio">生态转型部 · 加油站地理门户</a></h4><p>Gasel 从这里下载价格和加油站信息。它不会向该服务发送你的任何数据；但与其他网站一样，服务器可以看到你连接的 IP 地址。</p></article><article class="service"><span class="service-tag">驾车距离</span><h4><a href="https://router.project-osrm.org/">OSRM · router.project-osrm.org</a></h4><p>该服务会收到你的位置或所搜索区域的坐标，以及最多 200 个附近加油站的坐标。服务器可以看到你的 IP 地址，并会将请求保存在日志中。该公共服务由 FOSSGIS 运营（<a href="https://routing.openstreetmap.de/about.html">routing.openstreetmap.de/about.html</a>）。</p></article><article class="service"><span class="service-tag">地图服务</span><h4><a href="https://policies.google.com/privacy">Google Maps SDK</a></h4><p>用于绘制地图。Google 会收到技术数据，例如你的 IP 地址、手机信息和诊断数据。如果你授予权限，Gasel 会使用你的位置将地图居中。SDK 可能会记录你与地图的交互，例如平移地图或更改缩放级别。请参阅 Google 隐私政策（<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>）。</p></article><article class="service"><span class="service-tag">地点搜索</span><h4>Android 地理编码服务</h4><p>将你输入的内容转换为地点和坐标，并用于确定区域名称。此功能由你的手机及其服务提供商（通常为 Google）管理，而非 Gasel。</p></article><article class="service"><span class="service-tag">你的 Google 账户</span><h4>Android 备份</h4><p>如果已启用，Android 会将 Gasel 设置加密后保存到你的 Google 账户。Gasel 无法查看这些数据。你可以在系统设置中启用或停用此功能。</p></article></div><p>如果你在其他地图应用中打开某个加油站，或分享它的信息卡片，是你选择将其发送到相应应用。</p></div></section><section class="row" aria-labelledby="p-storage-title"><h3 id="p-storage-title">保存在手机上的内容</h3><div class="row-body"><div class="tbl"><table><thead><tr><th scope="col">数据</th><th scope="col">保存期限</th><th scope="col">Google 备份</th></tr></thead><tbody><tr><td data-l="数据">设置、常用燃油、折扣方案和自定义名称</td><td data-l="保存期限">直到你修改它们或清除应用数据</td><td data-l="Google 备份">如果已启用，则会备份</td></tr><tr><td data-l="数据">已保存区域：最近一次 GPS 位置（地点、坐标和时间），或你开始使用时选择的区域</td><td data-l="保存期限">直到获取下一个 GPS 位置或你将其删除</td><td data-l="Google 备份">否</td></tr><tr><td data-l="数据">最近计算的距离及其起点</td><td data-l="保存期限">每次搜索时替换</td><td data-l="Google 备份">否</td></tr><tr><td data-l="数据">已下载的价格和加油站信息</td><td data-l="保存期限">自动更新</td><td data-l="Google 备份">否</td></tr><tr><td data-l="数据">最近的错误报告</td><td data-l="保存期限">直到再次发生错误或你清除数据</td><td data-l="Google 备份">否</td></tr></tbody></table></div><p>请在“设置 › 开发者选项 › 已保存的区域”中删除已保存的区域。若要全部清除，请在 Android 设置中清除 Gasel 数据，或卸载应用。</p></div></section><section class="row" aria-labelledby="p-errors-title"><h3 id="p-errors-title">错误报告</h3><div class="row-body"><p>如果 Gasel 意外关闭，它会保存一份技术报告，并在你下次打开应用时提供给你。报告绝不会自动发送；你可以选择通过邮件发送、分享或复制。</p>
+<p>报告包括应用和 Android 版本、手机型号、语言以及错误的技术详情。显示报告前，Gasel 会删除看起来像坐标的数字。</p>
+<p>如果你通过邮件发送报告，我也会收到你的邮箱地址和你填写的内容。我只会用它来分析问题并回复你，且不会超出必要期限保存。</p></div></section><section class="row" aria-labelledby="p-basis-title"><h3 id="p-basis-title">法律依据</h3><div class="row-body"><p>使用位置数据的依据是你在 Android 中授予的权限（同意）。你可以随时在系统设置中撤销权限。</p>
+<p>其余处理（下载价格、绘制地图、计算距离）是提供你所使用服务所必需的，并基于确保应用正常运行的合法利益。你发给我的邮件会用于处理和回复你的请求。</p></div></section><section class="row" aria-labelledby="p-transfers-title"><h3 id="p-transfers-title">欧盟以外的数据传输</h3><div class="row-body"><p>Google LLC 位于美国，并加入了欧盟-美国数据隐私框架。OSRM 公共服务器由第三方项目维护，服务器可能位于欧盟以外。</p></div></section><section class="row" aria-labelledby="p-rights-title"><h3 id="p-rights-title">你的权利</h3><div class="row-body"><ul class="rights"><li>访问</li><li>更正</li><li>删除</li><li>限制处理</li><li>反对</li><li>数据可携带</li></ul><p>你可以发送邮件至 <a href="mailto:gasel@yvel.uk" dir="ltr">gasel@yvel.uk</a>，申请访问、更正、删除或限制处理你的数据，也可以提出反对或要求数据可携带。由于几乎所有数据都保存在你的手机上，你也可以随时自行删除。</p>
+<p>如果你认为自己的数据没有得到妥善处理，可以向西班牙数据保护局投诉（<a href="https://www.aepd.es/">aepd.es</a>）。</p></div></section><section class="row" aria-labelledby="p-minors-title"><h3 id="p-minors-title">未成年人</h3><div class="row-body"><p>Gasel 面向公众，不专门面向 14 岁以下未成年人。</p></div></section><section class="row" aria-labelledby="p-changes-title"><h3 id="p-changes-title">变更</h3><div class="row-body"><p>当应用处理数据的方式发生变化时，本政策会更新。上方日期表示最近一次修订时间。</p></div></section></section>
+<section id="legal" data-sec="legal" class="panel" aria-labelledby="legal-title"><header class="panel-head"><h2 id="legal-title">法律声明</h2><p class="lead">Gasel 的使用条件：开发者是谁、数据来自哪里，以及这些数据的可信程度。</p></header><section class="row" aria-labelledby="n-owner-title"><h3 id="n-owner-title">所有者</h3><div class="row-body"><p>Gasel 是由 Ismael Ares 以个人身份开发的免费应用，不从事商业活动。联系方式：<a href="mailto:gasel@yvel.uk" dir="ltr">gasel@yvel.uk</a>。应用标识符：uk.yvel.gasel。</p></div></section><section class="row" aria-labelledby="n-about-title"><h3 id="n-about-title">关于 Gasel</h3><div class="row-body"><p>一款用于比较燃油价格的信息应用。它不设账户、不投放广告、不收取佣金，也未与加油站、运营商或品牌达成协议；没有人会为在列表中排名靠前而付费。</p></div></section><section class="row" aria-labelledby="n-source-title"><h3 id="n-source-title">价格来源</h3><div class="row-body"><p>价格来自生态转型与人口挑战部的燃油价格服务（加油站地理门户），该服务收集各加油站自行申报的数据。Gasel 不改变数据含义，仅展示数据及其官方最近更新时间。</p>
+<p>重新使用这些公共数据时，必须注明来源、保留数据含义和元数据，并在有记录时注明更新日期（1495/2011 号皇家法令第 7 条）。该部不赞助或认可 Gasel。</p></div></section><section class="row" aria-labelledby="n-warranty-title"><h3 id="n-warranty-title">不作保证</h3><div class="row-body"><p>价格和营业时间可能延迟或存在错误。折扣由你自行设定，Gasel 不会核实。驾车距离是估算值；如果无法计算，则显示直线距离。</p>
+<p>请务必在加油站核实价格和条件。Gasel 不是导航器，不应用于驾驶导航。</p></div></section><section class="row" aria-labelledby="n-maps-title"><h3 id="n-maps-title">地图和距离</h3><div class="row-body"><p>地图由 Google Maps 提供，并显示其自身的署名信息。地图的使用受 Google Maps 条款约束（<a href="https://maps.google.com/help/terms_maps/">google.com/help/terms_maps</a>）。</p>
+<p>驾车距离通过 OSRM 使用 OpenStreetMap 数据计算，© OpenStreetMap 贡献者，依 ODbL 许可证提供（<a href="https://www.openstreetmap.org/copyright">openstreetmap.org/copyright</a>）。</p></div></section><section class="row" aria-labelledby="n-brands-title"><h3 id="n-brands-title">品牌和标志</h3><div class="row-body"><p>加油站标志仅用于帮助你识别相应品牌，所有权归其持有人所有；Google Maps、Android 和 Google Play 则归 Google 所有。标志出现在应用中不代表 Gasel 与这些品牌存在关联。</p>
+<p>如果你是某个品牌的权利人并希望移除其标志，请发送邮件至 <a href="mailto:gasel@yvel.uk" dir="ltr">gasel@yvel.uk</a>。</p></div></section><section class="row" aria-labelledby="n-ip-title"><h3 id="n-ip-title">知识产权</h3><div class="row-body"><p>Gasel 名称、标志及其自有代码归 Ismael Ares 所有。第三方组件按各自许可证使用，详情见“自由软件”部分。</p></div></section><section class="row" aria-labelledby="n-liability-title"><h3 id="n-liability-title">责任</h3><div class="row-body"><p>Gasel 免费提供，按现状使用。在法律允许的范围内，我不对你依据其数据作出的决定或第三方服务故障承担责任。以上内容不限制法律赋予消费者的权利。</p></div></section><section class="row" aria-labelledby="n-law-title"><h3 id="n-law-title">适用法律</h3><div class="row-body"><p>本声明受西班牙法律管辖。如果你是消费者，仍有权向你住所地的法院提起诉讼。</p></div></section></section>
+<section id="open-source" data-sec="open-source" class="panel" aria-labelledby="open-source-title"><header class="panel-head"><h2 id="open-source-title">自由软件</h2><p class="lead">Gasel 基于自由软件和开放数据构建。这里列出了它使用的内容及相应许可证。</p></header><section class="row" aria-labelledby="l-components-title"><h3 id="l-components-title">组件</h3><div class="row-body"><div class="tbl"><table><thead><tr><th scope="col">组件</th><th scope="col">用途</th><th scope="col">许可证</th></tr></thead><tbody><tr><td data-l="组件">Jetpack Compose BOM · 2026.02.01 / Material 3 · 1.5.0-alpha25</td><td data-l="用途">应用界面</td><td data-l="许可证">Apache 2.0</td></tr><tr><td data-l="组件">AndroidX (Activity, AppCompat, Core, Lifecycle, DataStore, SplashScreen)</td><td data-l="用途">应用基础和设置</td><td data-l="许可证">Apache 2.0</td></tr><tr><td data-l="组件">Material Icons</td><td data-l="用途">图标</td><td data-l="许可证">Apache 2.0</td></tr><tr><td data-l="组件">Kotlin · 2.4.10 / kotlinx.coroutines</td><td data-l="用途">编程语言</td><td data-l="许可证">Apache 2.0</td></tr><tr><td data-l="组件">Retrofit · 3.0.0 / OkHttp / Okio</td><td data-l="用途">下载价格</td><td data-l="许可证">Apache 2.0</td></tr><tr><td data-l="组件">Gson</td><td data-l="用途">读取 JSON</td><td data-l="许可证">Apache 2.0</td></tr><tr><td data-l="组件">Accompanist Permissions · 0.37.3</td><td data-l="用途">位置权限</td><td data-l="许可证">Apache 2.0</td></tr><tr><td data-l="组件">Material Kolor · 5.0.0 / Material Color Utilities</td><td data-l="用途">主题颜色</td><td data-l="许可证">MIT · Apache 2.0</td></tr><tr><td data-l="组件">Google Sans Flex</td><td data-l="用途">字体排版</td><td data-l="许可证">SIL OFL 1.1</td></tr><tr><td data-l="组件">flag-icons</td><td data-l="用途">巴西国旗</td><td data-l="许可证">MIT</td></tr><tr><td data-l="组件">Wikimedia Commons 旗帜</td><td data-l="用途">其他旗帜</td><td data-l="许可证">公有领域</td></tr><tr><td data-l="组件">Google Maps SDK · 19.0.0</td><td data-l="用途">地图（非自由软件）</td><td data-l="许可证">Google 条款</td></tr><tr><td data-l="组件">OpenStreetMap 数据</td><td data-l="用途">通过 OSRM 计算距离</td><td data-l="许可证">ODbL 1.0</td></tr></tbody></table></div></div></section><section class="row" aria-labelledby="l-texts-title"><h3 id="l-texts-title">许可证文本</h3><div class="row-body"><details class="license-disclosure"><summary>Apache License 2.0</summary><pre class="license-text" lang="en" dir="ltr">
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
+
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+   1. Definitions.
+
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
+
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
+
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
+
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
+
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
+
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
+
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
+
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
+
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
+
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
+
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
+
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
+
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
+
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
+
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
+
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
+
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
+
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
+
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
+
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
+
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
+
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
+
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
+
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+</pre></details><details class="license-disclosure"><summary>MIT License · flag-icons</summary><pre class="license-text" lang="en" dir="ltr">The MIT License (MIT)
+
+Copyright (c) 2013 Panayiotis Lipiridis
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</pre></details><details class="license-disclosure"><summary>SIL Open Font License 1.1 · Google Sans Flex</summary><pre class="license-text" lang="en" dir="ltr">Copyright 2022 The Google Sans Flex Project Authors (github.com/googlefonts/googlesans-flex)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+
+PREAMBLE
+The goals of the Open Font License (OFL) are to stimulate worldwide
+development of collaborative font projects, to support the font creation
+efforts of academic and linguistic communities, and to provide a free and
+open framework in which fonts may be shared and improved in partnership
+with others.
+
+The OFL allows the licensed fonts to be used, studied, modified and
+redistributed freely as long as they are not sold by themselves. The
+fonts, including any derivative works, can be bundled, embedded,
+redistributed and/or sold with any software provided that any reserved
+names are not used by derivative works. The fonts and derivatives,
+however, cannot be released under any other type of license. The
+requirement for fonts to remain under this license does not apply
+to any document created using the fonts or their derivatives.
+
+DEFINITIONS
+"Font Software" refers to the set of files released by the Copyright
+Holder(s) under this license and clearly marked as such. This may
+include source files, build scripts and documentation.
+
+"Reserved Font Name" refers to any names specified as such after the
+copyright statement(s).
+
+"Original Version" refers to the collection of Font Software components as
+distributed by the Copyright Holder(s).
+
+"Modified Version" refers to any derivative made by adding to, deleting,
+or substituting -- in part or in whole -- any of the components of the
+Original Version, by changing formats or by porting the Font Software to a
+new environment.
+
+"Author" refers to any designer, engineer, programmer, technical
+writer or other person who contributed to the Font Software.
+
+PERMISSION &amp; CONDITIONS
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Font Software, to use, study, copy, merge, embed, modify,
+redistribute, and sell modified and unmodified copies of the Font
+Software, subject to the following conditions:
+
+1) Neither the Font Software nor any of its individual components,
+in Original or Modified Versions, may be sold by itself.
+
+2) Original or Modified Versions of the Font Software may be bundled,
+redistributed and/or sold with any software, provided that each copy
+contains the above copyright notice and this license. These can be
+included either as stand-alone text files, human-readable headers or
+in the appropriate machine-readable metadata fields within text or
+binary files as long as those fields can be easily viewed by the user.
+
+3) No Modified Version of the Font Software may use the Reserved Font
+Name(s) unless explicit written permission is granted by the corresponding
+Copyright Holder. This restriction only applies to the primary font name as
+presented to the users.
+
+4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font
+Software shall not be used to promote, endorse or advertise any
+Modified Version, except to acknowledge the contribution(s) of the
+Copyright Holder(s) and the Author(s) or with their explicit written
+permission.
+
+5) The Font Software, modified or unmodified, in part or in whole,
+must be distributed entirely under this license, and must not be
+distributed under any other license. The requirement for fonts to
+remain under this license does not apply to any document created
+using the Font Software.
+
+TERMINATION
+This license becomes null and void if any of the above conditions are
+not met.
+
+DISCLAIMER
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL
+DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM
+OTHER DEALINGS IN THE FONT SOFTWARE.
+</pre></details><details class="license-disclosure"><summary>MIT License · Material Kolor</summary><pre class="license-text" lang="en" dir="ltr">MIT License
+
+Copyright (c) 2025 Jordon de Hoog
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</pre></details></div></section></section>
+<footer class="foot"><a class="foot-brand" href="index.html"><img src="gasel-logo.png" width="48" height="48" alt=""><strong>Gasel</strong></a><dl><div><dt>联系方式</dt><dd><a href="mailto:gasel@yvel.uk" dir="ltr">gasel@yvel.uk</a></dd></div><div><dt>标识符</dt><dd>uk.yvel.gasel</dd></div><div><dt>代码</dt><dd><a href="https://github.com/ismael-ares/gasel">github.com/ismael-ares/gasel</a></dd></div><div><dt>更新时间</dt><dd>最后更新：2026年11月21日</dd></div></dl></footer></main></body></html>

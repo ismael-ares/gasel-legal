@@ -62,72 +62,11 @@ LANGUAGES = (
     ("ur", "ur-PK", "values-ur-rPK"),
     ("ca-valencia", "ca-ES-valencia", "values-b+ca+ES+valencia"),
 )
-DOCUMENTS = (
-    ("privacy", "about_privacy_policy", "legal_privacy_summary", ("controller", "data", "services", "security", "retention")),
-    ("legal", "about_legal_notice", "legal_notice_summary", ("controller", "information", "brands", "use")),
-    ("licenses", "about_open_source_notices", "legal_licenses_summary", ("licenses", "attribution", "font")),
-)
-SECTION_KEYS = {
-    "controller": "controller",
-    "data": "data",
-    "services": "services",
-    "security": "security",
-    "retention": "retention",
-    "information": "information",
-    "brands": "brands",
-    "use": "use",
-    "licenses": "licenses",
-    "attribution": "attribution",
-    "font": "font",
-}
-NAV_LABELS = {
-    "sq": {"skip": "Kalo te përmbajtja", "documents": "Dokumente ligjore", "languages": "Gjuha e dokumentit"},
-    "ar": {"skip": "انتقل إلى المحتوى", "documents": "المستندات القانونية", "languages": "لغة المستند"},
-    "oc-aranes": {"skip": "Ves tath contengut", "documents": "Documents legaus", "languages": "Lengua deth document"},
-    "ast": {"skip": "Saltar al conteníu", "documents": "Documentos llexales", "languages": "Llingua del documentu"},
-    "eu": {"skip": "Saltatu edukira", "documents": "Legezko dokumentuak", "languages": "Dokumentuaren hizkuntza"},
-    "bs": {"skip": "Preskoči na sadržaj", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
-    "bg": {"skip": "Към съдържанието", "documents": "Правни документи", "languages": "Език на документа"},
-    "es": {"skip": "Saltar al contenido", "documents": "Documentos legales", "languages": "Idioma del documento"},
-    "ca": {"skip": "Ves al contingut", "documents": "Documents legals", "languages": "Idioma del document"},
-    "zh": {"skip": "跳转到正文", "documents": "法律文件", "languages": "文档语言"},
-    "hr": {"skip": "Preskoči na sadržaj", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
-    "cs": {"skip": "Přejít k obsahu", "documents": "Právní dokumenty", "languages": "Jazyk dokumentu"},
-    "da": {"skip": "Gå til indholdet", "documents": "Juridiske dokumenter", "languages": "Dokumentets sprog"},
-    "nl": {"skip": "Ga naar de inhoud", "documents": "Juridische documenten", "languages": "Documenttaal"},
-    "en": {"skip": "Skip to content", "documents": "Legal documents", "languages": "Document language"},
-    "en-us": {"skip": "Skip to content", "documents": "Legal documents", "languages": "Document language"},
-    "et": {"skip": "Liigu sisu juurde", "documents": "Õigusdokumendid", "languages": "Dokumendi keel"},
-    "fi": {"skip": "Siirry sisältöön", "documents": "Oikeudelliset asiakirjat", "languages": "Asiakirjan kieli"},
-    "fr": {"skip": "Aller au contenu", "documents": "Documents juridiques", "languages": "Langue du document"},
-    "gl": {"skip": "Saltar ao contido", "documents": "Documentos legais", "languages": "Idioma do documento"},
-    "de": {"skip": "Zum Inhalt springen", "documents": "Rechtliche Dokumente", "languages": "Dokumentsprache"},
-    "hi": {"skip": "मुख्य सामग्री पर जाएँ", "documents": "कानूनी दस्तावेज़", "languages": "दस्तावेज़ की भाषा"},
-    "hu": {"skip": "Ugrás a tartalomhoz", "documents": "Jogi dokumentumok", "languages": "A dokumentum nyelve"},
-    "is": {"skip": "Fara í efnið", "documents": "Lagaleg skjöl", "languages": "Tungumál skjalsins"},
-    "it": {"skip": "Vai al contenuto", "documents": "Documenti legali", "languages": "Lingua del documento"},
-    "ja": {"skip": "本文へ移動", "documents": "法的文書", "languages": "文書の言語"},
-    "ko": {"skip": "본문으로 건너뛰기", "documents": "법률 문서", "languages": "문서 언어"},
-    "lv": {"skip": "Pāriet uz saturu", "documents": "Juridiskie dokumenti", "languages": "Dokumenta valoda"},
-    "lt": {"skip": "Pereiti prie turinio", "documents": "Teisiniai dokumentai", "languages": "Dokumento kalba"},
-    "mk": {"skip": "Прескокни до содржината", "documents": "Правни документи", "languages": "Јазик на документот"},
-    "cnr": {"skip": "Preskoči na sadržaj", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
-    "nb": {"skip": "Hopp til innholdet", "documents": "Juridiske dokumenter", "languages": "Dokumentspråk"},
-    "pl": {"skip": "Przejdź do treści", "documents": "Dokumenty prawne", "languages": "Język dokumentu"},
-    "pt": {"skip": "Saltar para o conteúdo", "documents": "Documentos legais", "languages": "Idioma do documento"},
-    "pt-br": {"skip": "Pular para o conteúdo", "documents": "Documentos legais", "languages": "Idioma do documento"},
-    "ro": {"skip": "Sari la conținut", "documents": "Documente juridice", "languages": "Limba documentului"},
-    "ru": {"skip": "Перейти к содержимому", "documents": "Юридические документы", "languages": "Язык документа"},
-    "sr-cyrl": {"skip": "Пређи на садржај", "documents": "Правна документа", "languages": "Језик документа"},
-    "sr-latn": {"skip": "Pređi na sadržaj", "documents": "Pravna dokumenta", "languages": "Jezik dokumenta"},
-    "sk": {"skip": "Preskočiť na obsah", "documents": "Právne dokumenty", "languages": "Jazyk dokumentu"},
-    "sl": {"skip": "Preskoči na vsebino", "documents": "Pravni dokumenti", "languages": "Jezik dokumenta"},
-    "sv": {"skip": "Hoppa till innehållet", "documents": "Juridiska dokument", "languages": "Dokumentspråk"},
-    "rif": {"skip": "Awiḍ ɣer ugbur", "documents": "Isɣawalen n lqanun", "languages": "Tutlayt n usebter"},
-    "tr": {"skip": "İçeriğe atla", "documents": "Yasal belgeler", "languages": "Belge dili"},
-    "uk": {"skip": "Перейти до вмісту", "documents": "Юридичні документи", "languages": "Мова документа"},
-    "ur": {"skip": "مواد پر جائیں", "documents": "قانونی دستاویزات", "languages": "دستاویز کی زبان"},
-    "ca-valencia": {"skip": "Ves al contingut", "documents": "Documents legals", "languages": "Idioma del document"},
+LEGAL_ASSETS = {
+    "apache-license-2.0.txt": "apache_license_2_0.txt",
+    "flag-icons-mit.txt": "flag_icons_mit_license.txt",
+    "google-sans-flex.txt": "google_sans_flex_license.txt",
+    "material-kolor-mit.txt": "material_kolor_mit_license.txt",
 }
 LANGUAGE_NAME_KEYS = {
     "sq": "language_albanian",
@@ -203,16 +142,29 @@ def required(values: dict[str, str], key: str, language: str) -> str:
     return value
 
 
-def build_content(gasel_root: Path) -> tuple[dict[str, object], bytes]:
-    legal_license = gasel_root / "app/src/main/res/raw/google_sans_flex_license.txt"
-    if not legal_license.is_file():
-        raise ValueError("Falta app/src/main/res/raw/google_sans_flex_license.txt")
-    license_bytes = legal_license.read_bytes()
-    license_hash = hashlib.sha256(license_bytes).hexdigest()
+def build_content(gasel_root: Path, fixture_locales: set[str] | None = None) -> tuple[dict[str, object], dict[str, bytes]]:
+    assets: dict[str, bytes] = {}
+    asset_hashes: dict[str, str] = {}
+    for site_name, android_name in LEGAL_ASSETS.items():
+        source = gasel_root / "app/src/main/res/raw" / android_name
+        if not source.is_file():
+            raise ValueError(f"Falta app/src/main/res/raw/{android_name}")
+        data = source.read_bytes()
+        assets[site_name] = data
+        asset_hashes[site_name] = hashlib.sha256(data).hexdigest()
     locales: dict[str, object] = {}
     source_hashes: dict[str, str] = {}
 
+    spanish_folder = dict((lang, folder) for lang, _, folder in LANGUAGES)["es"]
+    spanish_legal = read_android_strings(gasel_root / "app/src/main/res" / spanish_folder / "legal.xml", "es")
+    required_legal_keys = tuple(spanish_legal)
+
+    selected = set(fixture_locales) if fixture_locales is not None else None
+    if selected is not None and ("es" not in selected or not selected.issubset({entry[0] for entry in LANGUAGES})):
+        raise ValueError("El fixture debe incluir es y usar solo idiomas conocidos")
     for lang, tag, folder in LANGUAGES:
+        if selected is not None and lang not in selected:
+            continue
         res = gasel_root / "app/src/main/res" / folder
         strings_path = res / "strings.xml"
         legal_path = res / "legal.xml"
@@ -222,30 +174,11 @@ def build_content(gasel_root: Path) -> tuple[dict[str, object], bytes]:
         source_hashes[lang] = hashlib.sha256(
             strings_path.read_bytes() + b"\0" + legal_path.read_bytes()
         ).hexdigest()
-        docs: dict[str, object] = {}
-        for doc_id, title_key, summary_key, section_ids in DOCUMENTS:
-            sections = []
-            for section_id in section_ids:
-                source_key = SECTION_KEYS[section_id]
-                section = {
-                    "id": section_id,
-                    "title": required(legal, f"legal_{source_key}_title", lang),
-                    "body": required(legal, f"legal_{source_key}_body", lang),
-                }
-                if section_id == "font":
-                    section["license_file"] = "licenses/google-sans-flex.txt"
-                sections.append(section)
-            docs[doc_id] = {
-                "title": required(strings, title_key, lang),
-                "summary": required(legal, summary_key, lang),
-                "updated": required(legal, "legal_last_updated", lang),
-                "sections": sections,
-            }
+        structured = {key: required(legal, key, lang) for key in required_legal_keys}
         locale = {
             "tag": tag,
             "language_name": language_name,
-            "navigation": NAV_LABELS[lang],
-            "documents": docs,
+            "strings": structured,
         }
         if lang in {"ar", "ur"}:
             locale["direction"] = "rtl"
@@ -253,15 +186,16 @@ def build_content(gasel_root: Path) -> tuple[dict[str, object], bytes]:
 
     content: dict[str, object] = {
         "schema_version": 1,
-        "language_order": [entry[0] for entry in LANGUAGES],
-        "document_order": [entry[0] for entry in DOCUMENTS],
+        "language_order": [entry[0] for entry in LANGUAGES if selected is None or entry[0] in selected],
+        "document_order": ["privacy", "legal", "licenses"],
+        "legal_keys": list(required_legal_keys),
         "source_sha256": {
             "language_catalogs": source_hashes,
-            "google_sans_flex_license": license_hash,
+            "legal_assets": asset_hashes,
         },
         "locales": locales,
     }
-    return content, license_bytes
+    return content, assets
 
 
 def serialized(content: dict[str, object]) -> bytes:
@@ -276,26 +210,29 @@ def main() -> int:
     mode.add_argument("--write", action="store_true", help="Update content.json and the full font license")
     args = parser.parse_args()
     try:
-        content, license_bytes = build_content(args.gasel_root.resolve())
+        content, assets = build_content(args.gasel_root.resolve())
     except (OSError, ValueError) as error:
         print(f"Import failed: {error}", file=sys.stderr)
         return 1
 
     content_path = ROOT / "content.json"
-    license_path = ROOT / "licenses/google-sans-flex.txt"
     expected_content = serialized(content)
     if args.write:
         content_path.write_bytes(expected_content)
-        license_path.parent.mkdir(parents=True, exist_ok=True)
-        license_path.write_bytes(license_bytes)
-        print(f"Imported {len(LANGUAGES)} legal catalogs and the complete Google Sans Flex license.")
+        for name, data in assets.items():
+            target = ROOT / "licenses" / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(data)
+        print(f"Imported {len(LANGUAGES)} legal catalogs and {len(assets)} original license files.")
         return 0
 
     problems = []
     if not content_path.is_file() or content_path.read_bytes() != expected_content:
         problems.append("content.json differs from the supplied Gasel checkout")
-    if not license_path.is_file() or license_path.read_bytes() != license_bytes:
-        problems.append("licenses/google-sans-flex.txt differs from the Android raw license")
+    for name, data in assets.items():
+        path = ROOT / "licenses" / name
+        if not path.is_file() or path.read_bytes() != data:
+            problems.append(f"licenses/{name} differs from its Android raw license")
     if problems:
         print("Import check failed:\n" + "\n".join(f"- {problem}" for problem in problems), file=sys.stderr)
         return 1

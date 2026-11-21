@@ -19,6 +19,16 @@ class LegalSiteTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.site = Path(self.temp.name) / "site"
         shutil.copytree(ROOT, self.site, ignore=shutil.ignore_patterns(".git", "__pycache__"))
+        # Real Spanish catalog fixture plus RTL clones exercise generation without
+        # coupling this repository's tests to a sibling Android checkout.
+        content = json.loads((ROOT / "tests/fixtures/content.json").read_text(encoding="utf-8"))
+        for locale, tag in (("ar", "ar-MA"), ("ur", "ur-PK")):
+            content["locales"][locale] = dict(content["locales"]["es"], tag=tag, language_name=locale, direction="rtl")
+            content["language_order"].append(locale)
+        (self.site / "content.json").write_text(json.dumps(content, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        license_paths = {name: self.site / "licenses" / name for name in render_site.ASSETS}
+        for name, markup in render_site.expected_files(content, license_paths).items():
+            (self.site / name).write_text(markup, encoding="utf-8")
 
     def tearDown(self) -> None:
         self.temp.cleanup()
@@ -30,31 +40,29 @@ class LegalSiteTests(unittest.TestCase):
         self.assertEqual([], self.errors())
 
     def test_missing_page_is_reported(self) -> None:
-        (self.site / "legal-ja.html").unlink()
-        self.assertTrue(any("legal-ja.html is missing" in error for error in self.errors()))
+        (self.site / "legal-ar.html").unlink()
+        self.assertTrue(any("legal-ar.html is missing" in error for error in self.errors()))
 
     def test_broken_local_href_is_reported(self) -> None:
         path = self.site / "privacy.html"
-        html = path.read_text(encoding="utf-8").replace('href="legal.html"', 'href="missing.html"', 1)
+        html = path.read_text(encoding="utf-8").replace('href="#legal"', 'href="missing.html"', 1)
         path.write_text(html, encoding="utf-8")
         self.assertTrue(any("broken local link: missing.html" in error for error in self.errors()))
 
     def test_wrong_locale_is_reported(self) -> None:
-        path = self.site / "privacy-ja.html"
-        html = path.read_text(encoding="utf-8").replace('<html lang="ja-JP">', '<html lang="en-GB">', 1)
+        path = self.site / "privacy-ar.html"
+        html = path.read_text(encoding="utf-8").replace('<html lang="ar-MA" dir="rtl">', '<html lang="en-GB">', 1)
         path.write_text(html, encoding="utf-8")
-        self.assertTrue(any("privacy-ja.html has the wrong html lang" in error for error in self.errors()))
+        self.assertTrue(any("privacy-ar.html has the wrong html lang" in error for error in self.errors()))
 
     def test_rtl_pages_use_rtl_and_license_remains_ltr(self) -> None:
         for locale in ("ar", "ur"):
             privacy = check_site.parse_page(self.site / f"privacy-{locale}.html")
-            licenses = check_site.parse_page(self.site / f"licenses-{locale}.html")
             self.assertEqual("rtl", privacy.html_dir)
-            self.assertEqual("rtl", licenses.html_dir)
-            self.assertEqual("ltr", licenses.license_dir)
+            self.assertEqual("ltr", privacy.license_dir)
 
     def test_truncated_license_is_reported(self) -> None:
-        path = self.site / "licenses-ja.html"
+        path = self.site / "privacy.html"
         html = path.read_text(encoding="utf-8").replace("TERMINATION", "", 1)
         path.write_text(html, encoding="utf-8")
         errors = self.errors()
@@ -62,22 +70,25 @@ class LegalSiteTests(unittest.TestCase):
 
     def test_page_diverged_from_imported_content_is_reported(self) -> None:
         path = self.site / "privacy.html"
-        html = path.read_text(encoding="utf-8").replace("Política de privacidad", "Política modificada", 1)
+        content = json.loads((self.site / "content.json").read_text(encoding="utf-8"))
+        heading = content["locales"]["es"]["strings"]["legal_hero_title"]
+        html = path.read_text(encoding="utf-8").replace(heading, "Política modificada", 1)
         path.write_text(html, encoding="utf-8")
         self.assertTrue(any("deterministic template/content render" in error for error in self.errors()))
 
     def test_renderer_escapes_imported_content(self) -> None:
-        content = json.loads((ROOT / "content.json").read_text(encoding="utf-8"))
-        content["locales"]["es"]["documents"]["privacy"]["summary"] = '<script>alert("x")</script> &'
-        license_text = (ROOT / "licenses/google-sans-flex.txt").read_text(encoding="utf-8")
-        page = render_site.render_document(content, "es", "privacy", license_text)
+        content = json.loads((self.site / "content.json").read_text(encoding="utf-8"))
+        content["locales"]["es"]["strings"]["legal_hero_promise"] = '<script>alert("x")</script> &'
+        licenses = {name: (self.site / "licenses" / name).read_text(encoding="utf-8") for name in render_site.ASSETS}
+        page = render_site.render_document(content, "es", "privacy", licenses)
         self.assertIn("&lt;script&gt;alert(&quot;x&quot;)&lt;/script&gt; &amp;", page)
         self.assertNotIn('<script>alert("x")</script>', page)
 
     def test_render_is_deterministic(self) -> None:
-        content = json.loads((ROOT / "content.json").read_text(encoding="utf-8"))
-        first = render_site.expected_files(content, ROOT / "licenses/google-sans-flex.txt")
-        second = render_site.expected_files(content, ROOT / "licenses/google-sans-flex.txt")
+        content = json.loads((self.site / "content.json").read_text(encoding="utf-8"))
+        paths = {name: self.site / "licenses" / name for name in render_site.ASSETS}
+        first = render_site.expected_files(content, paths)
+        second = render_site.expected_files(content, paths)
         self.assertEqual(first, second)
 
 
