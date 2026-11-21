@@ -61,6 +61,14 @@ class LegalSiteTests(unittest.TestCase):
             self.assertEqual("rtl", privacy.html_dir)
             self.assertEqual("ltr", privacy.license_dir)
 
+    def test_pages_use_custom_domain_canonical_and_language_alternates(self) -> None:
+        for name, locale in (("privacy.html", "es"), ("privacy-ar.html", "ar"), ("licenses-ar.html", "ar")):
+            markup = (self.site / name).read_text(encoding="utf-8")
+            canonical = f'https://gasel.yvel.uk/privacy{"-" + locale if locale != "es" else ""}.html'
+            self.assertIn(f'<link rel="canonical" href="{canonical}">', markup)
+            self.assertIn('hreflang="x-default" href="https://gasel.yvel.uk/privacy.html"', markup)
+            self.assertNotIn("ismael-ares.github.io", markup)
+
     def test_truncated_license_is_reported(self) -> None:
         path = self.site / "privacy.html"
         html = path.read_text(encoding="utf-8").replace("TERMINATION", "", 1)

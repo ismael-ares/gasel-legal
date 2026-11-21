@@ -12,6 +12,7 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+SITE_URL = "https://gasel.yvel.uk"
 EMAIL_RE = re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", re.I)
 DOMAIN_LINKS = {
     "routing.openstreetmap.de/about.html": "https://routing.openstreetmap.de/about.html",
@@ -40,6 +41,15 @@ def hero_burst_path() -> str:
 def page_name(document: str, locale: str) -> str:
     suffix = "" if locale == "es" else f"-{locale}"
     return f"{document}{suffix}.html"
+
+
+def language_alternates(content: dict[str, Any]) -> str:
+    links = [
+        f'<link rel="alternate" hreflang="{h(language["tag"])}" href="{SITE_URL}/{page_name("privacy", locale)}">'
+        for locale, language in content["locales"].items()
+    ]
+    links.append(f'<link rel="alternate" hreflang="x-default" href="{SITE_URL}/privacy.html">')
+    return "".join(links)
 
 
 def h(value: str) -> str:
@@ -80,9 +90,10 @@ def render_redirect(content: dict[str, Any], locale: str, document_id: str) -> s
     title_key = "legal_notice_title" if document_id == "legal" else "legal_licenses_title"
     title = strings[title_key]
     auto = f'<script>location.replace({json.dumps(target)});</script>'
+    canonical = f'{SITE_URL}/{page_name("privacy", locale)}'
     return f'''<!doctype html>
 <html lang="{h(language["tag"])}"{' dir="rtl"' if language.get("direction") == "rtl" else ""}><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta http-equiv="refresh" content="0;url={h(target)}"><title>{h(title)} | Gasel</title><link rel="stylesheet" href="styles.css"><script defer src="site.js"></script></head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><meta http-equiv="refresh" content="0;url={h(target)}"><title>{h(title)} | Gasel</title><link rel="canonical" href="{canonical}">{language_alternates(content)}<link rel="stylesheet" href="styles.css"><script defer src="site.js"></script></head>
 <body class="site"><main class="document-shell"><header class="bar-brand"><a class="brand" href="index.html"><img class="brand-logo" src="gasel-logo.png" alt="" width="48" height="48">Gasel</a></header><section class="panel redirect-panel"><h1>{h(title)}</h1><p>{h(strings["legal_hero_promise"])}</p><p><a href="{h(target)}">{h(strings["legal_open_web"])}</a></p></section></main>{auto}</body></html>'''
 
 
@@ -92,6 +103,7 @@ def render_document(content: dict[str, Any], locale: str, document_id: str, lice
     language = content["locales"][locale]
     s = language["strings"]
     direction = ' dir="rtl"' if language.get("direction") == "rtl" else ""
+    canonical = f'{SITE_URL}/{page_name("privacy", locale)}'
 
     facts = []
     for item in ("account", "ads", "location", "device", "prices", "outbound"):
@@ -166,7 +178,7 @@ def render_document(content: dict[str, Any], locale: str, document_id: str, lice
 
     return f'''<!doctype html>
 <html lang="{h(language["tag"])}"{direction}><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="color-scheme" content="light dark"><title>{h(s["legal_hero_title"])} | Gasel</title><link rel="icon" href="favicon.png" type="image/png"><link rel="stylesheet" href="styles.css"><script defer src="site.js"></script></head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="color-scheme" content="light dark"><title>{h(s["legal_hero_title"])} | Gasel</title><link rel="canonical" href="{canonical}">{language_alternates(content)}<link rel="icon" href="favicon.png" type="image/png"><link rel="stylesheet" href="styles.css"><script defer src="site.js"></script></head>
 <body class="site"><a class="skip-link" href="#main">{h(s["legal_nav_summary"])}</a>
 <header class="bar"><div class="bar-in gut"><a class="brand" href="index.html" aria-label="Gasel"><img class="brand-logo" src="gasel-logo.png" alt="" width="48" height="48"><span class="brand-name">Gasel</span></a><nav class="document-nav" aria-label="{h(s["legal_web_sections"])}">{nav_links}</nav>
 <details class="lang"><summary class="lang-btn"><span class="sr-only">{h(s["legal_web_language"])}</span><span class="lang-code">{h(locale.upper())}</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary><div class="lang-panel"><label class="sr-only" for="language-search">{h(s["legal_web_language_filter"])}</label><input id="language-search" class="lang-q" type="search" placeholder="{h(s["legal_web_language_filter"])}" autocomplete="off"><ul class="lang-list">{"".join(languages)}</ul><p class="lang-empty" hidden>{h(s["legal_web_language_empty"])}</p></div></details>
@@ -179,7 +191,7 @@ def render_document(content: dict[str, Any], locale: str, document_id: str, lice
 
 
 def render_index(content: dict[str, Any]) -> str:
-    return f'''<!doctype html><html lang="es-ES"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=privacy.html#summary"><title>Gasel</title><link rel="stylesheet" href="styles.css"></head><body><main class="document-shell"><h1>Gasel</h1><p><a href="privacy.html#summary">{h(content["locales"]["es"]["strings"]["legal_open_web"])}</a></p></main></body></html>'''
+    return f'''<!doctype html><html lang="es-ES"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=privacy.html#summary"><title>Gasel</title><link rel="canonical" href="{SITE_URL}/privacy.html">{language_alternates(content)}<link rel="stylesheet" href="styles.css"></head><body><main class="document-shell"><h1>Gasel</h1><p><a href="privacy.html#summary">{h(content["locales"]["es"]["strings"]["legal_open_web"])}</a></p></main></body></html>'''
 
 
 def expected_files(content: dict[str, Any], license_paths: dict[str, Path] | Path | None = None) -> dict[str, str]:
